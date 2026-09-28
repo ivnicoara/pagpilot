@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..900&display=swap" rel="stylesheet">
 <style>
 [hidden]{display:none!important}
+.logo-img{height:26px;width:auto;display:block}
 :root {
   --black: #0a0a0a; --ink: #111312; --ink-2: #3f4156; --muted: #6b716e; --line: #e3e7e5; --soft: #f6f8f7;
   --white: #fff; --mint-bg: #f1fff9; --mint: #a5e3b9; --green: #059f70; --green-dark: #047a56; --teal: #5fd5b6;
@@ -166,8 +167,7 @@ textarea.notes:focus { outline: none; border-color: var(--green); }
 
 <nav class="nav">
   <div class="logo">
-    <span class="logo-mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></span>
-    Hiring Admin <small>· Business Development Manager</small>
+    <img src="/logo-white.svg" alt="PagePilot" class="logo-img"> Hiring Admin <small>· Business Development Manager</small>
   </div>
   <div class="nav-actions" id="navActions" hidden>
     <button class="btn btn-dark" id="refresh" type="button">↻ Refresh</button>
@@ -491,7 +491,7 @@ function showDetail(id) {
           <dt>E-commerce</dt><dd>${esc((a.ecom || []).join(", ") || "None selected")}</dd>
           <dt>AI level</dt><dd>${esc(a.ai_level || "–")}</dd>
           <dt>AI tools</dt><dd>${esc([...(a.ai_tools || []), a.ai_other].filter(Boolean).join(", ") || "None selected")}</dd>
-          <dt>Pay $3K + bonus</dt><dd>${esc(a.pay_ok)}</dd>
+          <dt>Expected salary</dt><dd>${esc(a.expected_salary || (a.pay_ok ? "Not asked (old form)" : "–"))}</dd>
           <dt>Code word</dt><dd>${esc(a.codeword)} <span class="pill ${a.codeword_correct ? "flag-ok" : "flag-bad"}">${a.codeword_correct ? "Correct" : "Wrong"}</span></dd>
         </dl>
       </div>
@@ -599,7 +599,7 @@ $("detail").addEventListener("click", e => {
 });
 
 $("csv").addEventListener("click", () => {
-  const cols = ["submitted_at", "status", "name", "email", "location", "linkedin", "loom", "start", "saas_years", "ecom", "ai_level", "ai_tools", "ai_other", "ai_usage", "pay_ok", "codeword_correct", "score", "phase2_status", "phase2_score", "winback", "built", "partners", "extra", "notes"];
+  const cols = ["submitted_at", "status", "name", "email", "location", "linkedin", "loom", "start", "saas_years", "ecom", "ai_level", "ai_tools", "ai_other", "ai_usage", "expected_salary", "codeword_correct", "score", "phase2_status", "phase2_score", "winback", "built", "partners", "extra", "notes"];
   const cell = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
   const rows = [cols.join(",")].concat(filtered().map(a => cols.map(c =>
     cell(c === "ecom" || c === "ai_tools" ? (a[c] || []).join("; ") : c === "score" ? scoreOf(a) ?? "" : c === "phase2_status" ? (a.phase2 ? (a.phase2.submission ? "submitted" : "sent") : "") : c === "phase2_score" ? sum(a.scores2) ?? "" : a[c])

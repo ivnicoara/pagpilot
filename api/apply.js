@@ -6,10 +6,10 @@ const CODE_WORD = "COMEBACK";
 const FIELDS = {
   name: 120, email: 200, location: 160, linkedin: 300, start: 60,
   loom: 400, saas_years: 30, winback: 1500, built: 1500, partners: 1000,
-  pay_ok: 40, codeword: 60, extra: 1000,
+  expected_salary: 100, codeword: 60, extra: 1000,
   ai_level: 60, ai_other: 200, ai_usage: 1500
 };
-const REQUIRED = ["name", "email", "location", "linkedin", "start", "loom", "saas_years", "ai_level", "ai_usage", "winback", "built", "pay_ok", "codeword"];
+const REQUIRED = ["name", "email", "location", "linkedin", "start", "loom", "saas_years", "ai_level", "ai_usage", "winback", "built", "expected_salary", "codeword"];
 
 const clean = (v, max) => String(v ?? "").trim().slice(0, max);
 
