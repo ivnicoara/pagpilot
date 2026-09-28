@@ -13,20 +13,20 @@
 .logo-img{height:26px;width:auto;display:block}
 /* Store Pilot / Page Pilot brand: Inter, black + white, green, neon yellow, green→cyan gradient */
 :root {
-  --black: #0a0a0a;
-  --ink: #111312;
+  --black: #050015;
+  --ink: #110b30;
   --ink-2: #3f4156;
-  --muted: #6b716e;
-  --line: #e3e7e5;
+  --muted: #6b6785;
+  --line: #e6e2f5;
   --white: #ffffff;
-  --mint-bg: #f1fff9;
-  --mint: #a5e3b9;
-  --green: #059f70;
-  --green-dark: #047a56;
-  --teal: #5fd5b6;
-  --neon: #fcff00;
+  --mint-bg: #f9f7ff;
+  --mint: #d6cfff;
+  --green: #6959ff;
+  --green-dark: #4922ff;
+  --teal: #ae8ff2;
+  --neon: #6959ff;
   --star: #ffa132;
-  --grad: linear-gradient(90deg, #4bfe85 0%, #00dbff 100%);
+  --grad: linear-gradient(90deg, #b3a4ff 0%, #7d6bff 100%);
   --radius: 14px;
   --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color-scheme: light;
@@ -54,11 +54,11 @@ p { margin: 0; }
 .narrow { max-width: 760px; }
 
 /* Nav */
-.nav { background: var(--black); color: var(--white); position: sticky; top: 0; z-index: 20; border-bottom: 1px solid #1d1f1e; }
+.nav { background: var(--black); color: var(--white); position: sticky; top: 0; z-index: 20; border-bottom: 1px solid #1a1440; }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
 .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; text-decoration: none; letter-spacing: -0.02em; }
 .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--grad); display: grid; place-items: center; color: var(--black); }
-.logo small { font-weight: 500; color: #9aa19e; font-size: 13px; }
+.logo small { font-weight: 500; color: #a39fc2; font-size: 13px; }
 
 /* Buttons */
 .btn {
@@ -68,8 +68,8 @@ p { margin: 0; }
   transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn-neon { background: var(--neon); color: var(--black); box-shadow: 0 6px 24px rgba(252,255,0,.25); }
-.btn-neon:hover { box-shadow: 0 10px 30px rgba(252,255,0,.35); }
+.btn-neon { background: var(--neon); color: #fff; box-shadow: 0 6px 24px rgba(105,89,255,.35); }
+.btn-neon:hover { box-shadow: 0 10px 30px rgba(105,89,255,.45); }
 .btn-green { background: var(--green); color: var(--white); }
 .btn-green:hover { background: var(--green-dark); }
 .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
@@ -79,21 +79,21 @@ p { margin: 0; }
 /* Labels / chips */
 .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
 .chip { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
-.chip-dark { background: #1a1c1b; color: #d9dedb; border: 1px solid #2a2d2b; }
+.chip-dark { background: #16113a; color: #dcd8ee; border: 1px solid #2a2458; }
 .chip-mint { background: var(--mint-bg); color: var(--green-dark); border: 1px solid var(--mint); }
 .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.hl { background: var(--neon); color: var(--black); padding: 0 .2em; border-radius: 4px; }
+.hl { background: var(--neon); color: #fff; padding: 0 .2em; border-radius: 4px; }
 </style>
 <style>
   /* Hero */
   .hero { background: var(--black); color: var(--white); padding-block: 64px 72px; position: relative; overflow: hidden; }
-  .hero::after { content: ""; position: absolute; inset: auto -20% -60% -20%; height: 70%; background: radial-gradient(closest-side, rgba(75,254,133,.16), transparent); pointer-events: none; }
+  .hero::after { content: ""; position: absolute; inset: auto -20% -60% -20%; height: 70%; background: radial-gradient(closest-side, rgba(128,129,255,.28), transparent); pointer-events: none; }
   .hero .wrap { position: relative; z-index: 1; display: grid; gap: 40px; }
   .hero-top { display: flex; flex-wrap: wrap; gap: 8px; }
   .hero h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 900; max-width: 16ch; }
-  .hero .lede { font-size: clamp(17px, 2vw, 20px); color: #c9cfcc; max-width: 60ch; }
+  .hero .lede { font-size: clamp(17px, 2vw, 20px); color: #cfcbe6; max-width: 60ch; }
   .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
-  .hero-cta .note { font-size: 14px; color: #9aa19e; }
+  .hero-cta .note { font-size: 14px; color: #a39fc2; }
   .hero-grid { display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 40px; align-items: center; }
   .hero > .wrap { max-width: 1240px; }
   .hero-copy { display: grid; gap: 24px; }
@@ -101,24 +101,24 @@ p { margin: 0; }
   /* Video placeholder */
   .video {
     position: relative; aspect-ratio: 16 / 9; width: 100%; max-width: 100%;
-    border-radius: 18px; overflow: hidden; background: #141615;
-    border: 1px solid #2a2d2b; box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    border-radius: 18px; overflow: hidden; background: #110b30;
+    border: 1px solid #2a2458; box-shadow: 0 30px 80px rgba(0,0,0,.5);
   }
   .video iframe, .video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
   .video-ph { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 20px;
-    background: radial-gradient(120% 90% at 50% 0%, #1d2a24 0%, #121413 60%); }
-  .video-ph .play { width: 76px; height: 76px; border-radius: 50%; background: var(--neon); display: grid; place-items: center; margin: 0 auto 16px; box-shadow: 0 0 0 10px rgba(252,255,0,.12); }
+    background: radial-gradient(120% 90% at 50% 0%, #1e1650 0%, #0e0929 60%); }
+  .video-ph .play { width: 76px; height: 76px; border-radius: 50%; background: var(--neon); display: grid; place-items: center; margin: 0 auto 16px; box-shadow: 0 0 0 10px rgba(105,89,255,.22); }
   .video-ph .play svg { margin-left: 5px; }
   .video-ph strong { display: block; font-size: 18px; }
-  .video-ph span { font-size: 14px; color: #9aa19e; }
+  .video-ph span { font-size: 14px; color: #a39fc2; }
   .video-ph .soon { position: absolute; top: 14px; left: 14px; }
 
   /* Facts bar */
-  .facts { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #232625; border-radius: var(--radius); overflow: hidden; }
-  .fact { padding: 18px 20px; border-right: 1px solid #232625; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #231c4d; border-radius: var(--radius); overflow: hidden; }
+  .fact { padding: 18px 20px; border-right: 1px solid #231c4d; }
   .fact:last-child { border-right: 0; }
   .fact b { display: block; font-size: 20px; font-weight: 800; }
-  .fact span { font-size: 13px; color: #9aa19e; }
+  .fact span { font-size: 13px; color: #a39fc2; }
 
   /* Sections */
   section { padding-block: 80px; }
@@ -140,15 +140,15 @@ p { margin: 0; }
   /* Priority #1 */
   .priority { background: var(--black); color: var(--white); border-radius: 22px; padding: 40px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; margin-bottom: 28px; }
   .priority h3 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; margin: 12px 0 14px; }
-  .priority p { color: #c9cfcc; }
+  .priority p { color: #cfcbe6; }
   .priority ul { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-  .priority li { display: flex; gap: 10px; color: #dfe4e1; }
+  .priority li { display: flex; gap: 10px; color: #e4e1f3; }
   .priority li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: 9px; border-radius: 50%; background: var(--teal); }
   .flow { display: grid; gap: 10px; }
-  .flow-step { display: flex; align-items: center; gap: 12px; background: #151716; border: 1px solid #262927; border-radius: 12px; padding: 12px 14px; font-size: 14px; }
+  .flow-step { display: flex; align-items: center; gap: 12px; background: #120c33; border: 1px solid #241d4f; border-radius: 12px; padding: 12px 14px; font-size: 14px; }
   .flow-step .d { flex: none; font-size: 12px; font-weight: 700; color: var(--black); background: var(--mint); border-radius: 6px; padding: 3px 8px; min-width: 52px; text-align: center; }
-  .flow-step.win .d { background: var(--neon); }
-  .flow-cap { font-size: 12px; color: #8b928f; text-align: center; margin-top: 4px; }
+  .flow-step.win .d { background: var(--neon); color: #fff; }
+  .flow-cap { font-size: 12px; color: #8e89ad; text-align: center; margin-top: 4px; }
 
   /* Duties grid */
   .duties { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -173,9 +173,9 @@ p { margin: 0; }
   .pay-card.main { background: var(--black); color: var(--white); border-color: var(--black); }
   .pay-card .big { font-size: 40px; font-weight: 900; letter-spacing: -0.03em; }
   .pay-card .lbl { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-  .pay-card.main .lbl { color: #9aa19e; }
+  .pay-card.main .lbl { color: #a39fc2; }
   .pay-card p { color: var(--ink-2); font-size: 15px; }
-  .pay-card.main p { color: #c9cfcc; }
+  .pay-card.main p { color: #cfcbe6; }
 
   /* Process */
   .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; counter-reset: s; }
@@ -189,11 +189,11 @@ p { margin: 0; }
   .apply { background: var(--black); color: var(--white); text-align: center; }
   .apply .wrap { display: grid; gap: 22px; justify-items: center; }
   .apply h2 { font-size: clamp(30px, 5vw, 52px); font-weight: 900; }
-  .apply p { color: #c9cfcc; max-width: 58ch; font-size: 18px; }
+  .apply p { color: #cfcbe6; max-width: 58ch; font-size: 18px; }
   .need { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-  .codeword { border: 1px dashed #3a3e3c; border-radius: 12px; padding: 14px 18px; font-size: 14px; color: #c9cfcc; max-width: 560px; }
+  .codeword { border: 1px dashed #3b3470; border-radius: 12px; padding: 14px 18px; font-size: 14px; color: #cfcbe6; max-width: 560px; }
 
-  footer { background: var(--black); color: #7d8481; font-size: 13px; border-top: 1px solid #1d1f1e; padding-block: 24px; }
+  footer { background: var(--black); color: #827d9f; font-size: 13px; border-top: 1px solid #1a1440; padding-block: 24px; }
   footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
 
   @media (max-width: 900px) {
@@ -202,7 +202,7 @@ p { margin: 0; }
     .steps { grid-template-columns: 1fr 1fr; }
     .facts { grid-template-columns: 1fr 1fr; }
     .fact:nth-child(2) { border-right: 0; }
-    .fact:nth-child(-n+2) { border-bottom: 1px solid #232625; }
+    .fact:nth-child(-n+2) { border-bottom: 1px solid #231c4d; }
     .priority { padding: 28px; }
   }
   @media (max-width: 560px) {
@@ -272,7 +272,7 @@ p { margin: 0; }
     </div>
     <div class="products">
       <article class="product">
-        <h3><span class="logo-mark" style="width:26px;height:26px;border-radius:7px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>Page Pilot</h3>
+        <h3><span class="logo-mark" style="width:26px;height:26px;border-radius:7px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#050015" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>Page Pilot</h3>
         <p>Paste a product link from AliExpress, Amazon or TikTok Shop and get a high-converting Shopify product page in under a minute. Includes an editor, AI images, ad creatives and 30+ languages.</p>
         <div class="stats">
           <span class="chip chip-mint">400K+ merchants</span>
@@ -282,7 +282,7 @@ p { margin: 0; }
         <a href="https://pagepilot.ai/" target="_blank" rel="noopener">pagepilot.ai →</a>
       </article>
       <article class="product">
-        <h3><span class="logo-mark" style="width:26px;height:26px;border-radius:7px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9M3 9h18M3 9v11h18V9M9 20v-6h6v6"/></svg></span>Store Pilot</h3>
+        <h3><span class="logo-mark" style="width:26px;height:26px;border-radius:7px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#050015" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9M3 9h18M3 9v11h18V9M9 20v-6h6v6"/></svg></span>Store Pilot</h3>
         <p>A complete, branded Shopify store built by AI in about 10 minutes, with 30 winning products preloaded across 8 niches. Made for new dropshippers who want to launch fast.</p>
         <div class="stats">
           <span class="chip chip-mint">5,000+ dropshippers</span>
@@ -305,7 +305,7 @@ p { margin: 0; }
 
     <div class="priority">
       <div>
-        <span class="chip" style="background:var(--neon);color:var(--black)">Priority #1</span>
+        <span class="chip" style="background:var(--neon);color:#fff">Priority #1</span>
         <h3>Win back users who stop paying</h3>
         <p>Our churn is high right now and we do almost nothing with people who cancel. You'll own this. Design the win-back flows, launch them, measure them and keep improving them.</p>
         <ul>
@@ -448,7 +448,7 @@ p { margin: 0; }
     <a class="btn btn-neon" href="apply.html">Start my application
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
-    <p class="codeword">We want people who read to the end. The form will ask you for a code word. The code word is <b style="color:var(--neon)">COMEBACK</b>.</p>
+    <p class="codeword">We want people who read to the end. The form will ask you for a code word. The code word is <b style="color:#ae8ff2">COMEBACK</b>.</p>
   </div>
 </section>
 

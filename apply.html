@@ -12,20 +12,20 @@
 .logo-img{height:26px;width:auto;display:block}
 /* Store Pilot / Page Pilot brand: Inter, black + white, green, neon yellow, green→cyan gradient */
 :root {
-  --black: #0a0a0a;
-  --ink: #111312;
+  --black: #050015;
+  --ink: #110b30;
   --ink-2: #3f4156;
-  --muted: #6b716e;
-  --line: #e3e7e5;
+  --muted: #6b6785;
+  --line: #e6e2f5;
   --white: #ffffff;
-  --mint-bg: #f1fff9;
-  --mint: #a5e3b9;
-  --green: #059f70;
-  --green-dark: #047a56;
-  --teal: #5fd5b6;
-  --neon: #fcff00;
+  --mint-bg: #f9f7ff;
+  --mint: #d6cfff;
+  --green: #6959ff;
+  --green-dark: #4922ff;
+  --teal: #ae8ff2;
+  --neon: #6959ff;
   --star: #ffa132;
-  --grad: linear-gradient(90deg, #4bfe85 0%, #00dbff 100%);
+  --grad: linear-gradient(90deg, #b3a4ff 0%, #7d6bff 100%);
   --radius: 14px;
   --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color-scheme: light;
@@ -53,11 +53,11 @@ p { margin: 0; }
 .narrow { max-width: 760px; }
 
 /* Nav */
-.nav { background: var(--black); color: var(--white); position: sticky; top: 0; z-index: 20; border-bottom: 1px solid #1d1f1e; }
+.nav { background: var(--black); color: var(--white); position: sticky; top: 0; z-index: 20; border-bottom: 1px solid #1a1440; }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
 .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; text-decoration: none; letter-spacing: -0.02em; }
 .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--grad); display: grid; place-items: center; color: var(--black); }
-.logo small { font-weight: 500; color: #9aa19e; font-size: 13px; }
+.logo small { font-weight: 500; color: #a39fc2; font-size: 13px; }
 
 /* Buttons */
 .btn {
@@ -67,8 +67,8 @@ p { margin: 0; }
   transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn-neon { background: var(--neon); color: var(--black); box-shadow: 0 6px 24px rgba(252,255,0,.25); }
-.btn-neon:hover { box-shadow: 0 10px 30px rgba(252,255,0,.35); }
+.btn-neon { background: var(--neon); color: #fff; box-shadow: 0 6px 24px rgba(105,89,255,.35); }
+.btn-neon:hover { box-shadow: 0 10px 30px rgba(105,89,255,.45); }
 .btn-green { background: var(--green); color: var(--white); }
 .btn-green:hover { background: var(--green-dark); }
 .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
@@ -78,19 +78,19 @@ p { margin: 0; }
 /* Labels / chips */
 .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
 .chip { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
-.chip-dark { background: #1a1c1b; color: #d9dedb; border: 1px solid #2a2d2b; }
+.chip-dark { background: #16113a; color: #dcd8ee; border: 1px solid #2a2458; }
 .chip-mint { background: var(--mint-bg); color: var(--green-dark); border: 1px solid var(--mint); }
 .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.hl { background: var(--neon); color: var(--black); padding: 0 .2em; border-radius: 4px; }
+.hl { background: var(--neon); color: #fff; padding: 0 .2em; border-radius: 4px; }
 </style>
 <style>
   body { background: var(--mint-bg); }
   .top { background: var(--black); color: var(--white); padding-block: 40px 96px; }
   .top .wrap { display: grid; gap: 12px; }
-  .back { color: #9aa19e; font-size: 14px; text-decoration: none; font-weight: 600; }
+  .back { color: #a39fc2; font-size: 14px; text-decoration: none; font-weight: 600; }
   .back:hover { color: var(--white); }
   .top h1 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 900; }
-  .top p { color: #c9cfcc; max-width: 60ch; }
+  .top p { color: #cfcbe6; max-width: 60ch; }
   .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
 
   main { margin-top: -64px; padding-bottom: 80px; }
@@ -102,7 +102,7 @@ p { margin: 0; }
   .pstep:last-child { border-right: 0; }
   .pstep .n { flex: none; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; font-size: 13px; font-weight: 700; }
   .pstep.active { color: var(--ink); }
-  .pstep.active .n { background: var(--black); border-color: var(--black); color: var(--neon); }
+  .pstep.active .n { background: var(--black); border-color: var(--black); color: #ae8ff2; }
   .pstep.done .n { background: var(--green); border-color: var(--green); color: var(--white); }
   .pstep::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: transparent; }
   .pstep.active::after { background: var(--grad); }
@@ -124,7 +124,7 @@ p { margin: 0; }
     transition: border-color .15s, box-shadow .15s;
   }
   textarea { min-height: 120px; resize: vertical; }
-  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 4px rgba(5,159,112,.12); }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 4px rgba(105,89,255,.15); }
   .invalid input, .invalid select, .invalid textarea { border-color: #e5484d; }
   .err { display: none; font-size: 13px; color: #d13438; font-weight: 500; }
   .invalid .err { display: block; }
@@ -144,11 +144,11 @@ p { margin: 0; }
   .brief { background: var(--black); color: var(--white); border-radius: 16px; padding: 26px; display: grid; gap: 16px; }
   .brief h3 { font-size: 18px; display: flex; align-items: center; gap: 10px; }
   .brief ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; counter-reset: b; }
-  .brief li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; color: #dfe4e1; font-size: 15px; }
+  .brief li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; color: #e4e1f3; font-size: 15px; }
   .brief li::before { counter-increment: b; content: counter(b); width: 26px; height: 26px; border-radius: 50%; background: var(--mint); color: var(--black); font-weight: 800; font-size: 13px; display: grid; place-items: center; }
   .brief li b { color: var(--white); }
   .brief .tips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .brief a { color: var(--neon); }
+  .brief a { color: #ae8ff2; }
 
   .scenario { background: var(--mint-bg); border: 1px solid var(--mint); border-radius: 12px; padding: 14px 16px; font-size: 14px; color: var(--ink-2); }
 
@@ -192,7 +192,7 @@ p { margin: 0; }
     <a class="logo" href="index.html">
       <img src="/logo-white.svg" alt="PagePilot" class="logo-img"> <small>&amp; Store Pilot · Careers</small>
     </a>
-    <a class="btn btn-sm" style="color:#c9cfcc;padding-inline:0" href="index.html">View job description</a>
+    <a class="btn btn-sm" style="color:#cfcbe6;padding-inline:0" href="index.html">View job description</a>
   </div>
 </nav>
 
@@ -249,7 +249,7 @@ p { margin: 0; }
       <fieldset data-step="2" hidden>
         <legend><div class="step-title">Record your Loom</div><div class="step-sub">3 to 5 minutes, camera on. This replaces a cover letter and a first interview.</div></legend>
         <div class="brief">
-          <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fcff00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Cover these 3 things</h3>
+          <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6959ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Cover these 3 things</h3>
           <ol>
             <li><div><b>Who you are.</b> Your background in SaaS and e-commerce, in one minute.</div></li>
             <li><div><b>One result you're proud of.</b> Something you grew, fixed or built. Use real numbers.</div></li>
@@ -376,7 +376,7 @@ p { margin: 0; }
     </form>
 
     <div class="done" id="done" hidden>
-      <div class="tick"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <div class="tick"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
       <h2>Application sent</h2>
       <p>Thanks, <span id="doneName">there</span>. We watch every Loom ourselves. Here's what happens next:</p>
       <div class="next">
