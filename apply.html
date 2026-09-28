@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..900&display=swap" rel="stylesheet">
 <style>
 [hidden]{display:none!important}
+.logo-img{height:26px;width:auto;display:block}
 /* Store Pilot / Page Pilot brand: Inter, black + white, green, neon yellow, green→cyan gradient */
 :root {
   --black: #0a0a0a;
@@ -189,8 +190,7 @@ p { margin: 0; }
 <nav class="nav">
   <div class="wrap">
     <a class="logo" href="index.html">
-      <span class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></span>
-      Page Pilot <small>&amp; Store Pilot · Careers</small>
+      <img src="/logo-white.svg" alt="PagePilot" class="logo-img"> <small>&amp; Store Pilot · Careers</small>
     </a>
     <a class="btn btn-sm" style="color:#c9cfcc;padding-inline:0" href="index.html">View job description</a>
   </div>
@@ -202,7 +202,7 @@ p { margin: 0; }
     <h1>Apply: Business Development Manager</h1>
     <p>4 short steps, about 15 minutes. The Loom video matters most, so take your time with it. Your answers are saved in this browser as you type.</p>
     <div class="meta">
-      <span class="chip chip-dark">$3,000/mo + bonuses</span>
+      <span class="chip chip-dark">Fixed salary + bonuses</span>
       <span class="chip chip-dark">Remote · Full-time</span>
       <span class="chip chip-dark">Loom required</span>
     </div>
@@ -230,7 +230,7 @@ p { margin: 0; }
           <div class="field"><label for="email">Email <span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" required><span class="err">Please enter a valid email address.</span></div>
         </div>
         <div class="row">
-          <div class="field"><label for="location">City and country <span class="req">*</span></label><input id="location" name="location" type="text" placeholder="e.g. Cluj-Napoca, Romania" required><span class="err">Please tell us where you live.</span></div>
+          <div class="field"><label for="location">City and country <span class="req">*</span></label><input id="location" name="location" type="text" placeholder="e.g. Bucharest, Romania" required><span class="err">Please tell us where you live.</span></div>
           <div class="field"><label for="linkedin">LinkedIn profile <span class="req">*</span></label><input id="linkedin" name="linkedin" type="text" inputmode="url" autocapitalize="off" spellcheck="false" data-url placeholder="https://linkedin.com/in/…" required data-match="linkedin.com"><span class="err">Please paste your LinkedIn profile link.</span></div>
         </div>
         <div class="field">
@@ -346,12 +346,10 @@ p { margin: 0; }
       <fieldset data-step="4" hidden>
         <legend><div class="step-title">Almost done</div><div class="step-sub">Two quick checks, then review and send.</div></legend>
         <div class="field">
-          <span class="label">The pay is $3,000/month plus bonuses (including a % of the revenue you recover). Does that work for you? <span class="req">*</span></span>
-          <div class="opts">
-            <label class="opt"><input type="radio" name="pay_ok" value="Yes" required><span>Yes, works for me</span></label>
-            <label class="opt"><input type="radio" name="pay_ok" value="Want to discuss"><span>I'd like to discuss it</span></label>
-          </div>
-          <span class="err">Please choose one.</span>
+          <label for="expected_salary">What base monthly salary do you expect? <span class="req">*</span></label>
+          <span class="hint">Gross amount per month, with the currency. Bonuses come on top of this.</span>
+          <input id="expected_salary" name="expected_salary" type="text" maxlength="100" placeholder="e.g. €2,500 / month" required>
+          <span class="err">Please tell us your expected base salary.</span>
         </div>
         <div class="field">
           <label for="codeword">Code word from the job description <span class="req">*</span></label>
@@ -478,7 +476,7 @@ function collect() {
 const LABELS = {
   name: "Name", email: "Email", location: "Location", linkedin: "LinkedIn", start: "Can start",
   loom: "Loom", saas_years: "SaaS years", ecom: "E-commerce", ai_level: "AI level", ai_tools: "AI tools", ai_other: "Other AI tools", ai_usage: "How I use AI", winback: "Win-back message",
-  built: "Something I built", partners: "Partnerships", pay_ok: "Pay OK", codeword: "Code word", extra: "Other"
+  built: "Something I built", partners: "Partnerships", expected_salary: "Expected base salary", codeword: "Code word", extra: "Other"
 };
 
 function renderReview() {

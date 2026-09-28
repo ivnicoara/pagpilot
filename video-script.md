@@ -2,7 +2,7 @@
 
 **Speaker:** Valentin, HR Manager at Page Pilot
 **Length:** about 2 to 2.5 minutes (roughly 330 words)
-**Where it goes:** the video box at the top of pagepilot.orxon.co
+**Where it goes:** the video box at the top of job.pagepilot.ai
 
 **Recording tips**
 - Talk to the camera like you're explaining the job to a friend. Don't read word for word; use this as a guide.
@@ -23,7 +23,7 @@ If that sounds like you, watch the next two minutes.
 
 *[Screen: pagepilot.ai, paste a product link, the page generates]*
 
-We're a team based in Cluj, Romania, and since 2023 we've built two AI products for Shopify sellers.
+We're a fully remote team, and since 2023 we've built two AI products for Shopify sellers.
 
 **Page Pilot** turns a product link into a high-converting product page in under a minute. More than 400,000 merchants have used it.
 
@@ -31,7 +31,7 @@ We're a team based in Cluj, Romania, and since 2023 we've built two AI products 
 
 **Store Pilot** builds a complete Shopify store with AI in about ten minutes, with winning products already loaded.
 
-We're a small team in Cluj with a lot of users all over the world, so one good person here makes a real difference.
+We're a small remote team with a lot of users all over the world, so one good person here makes a real difference.
 
 ### 3. The main job (0:40–1:05)
 
@@ -73,4 +73,4 @@ I watch every video myself. Looking forward to seeing yours.
 
 ### Short version (about 45 seconds, for social media)
 
-Hey, I'm Valentin from Page Pilot. We're a team from Cluj, Romania, building AI tools for Shopify sellers, used by over 400,000 merchants. We're hiring a Business Development Manager: someone who understands SaaS and e-commerce and can do a bit of everything. Your main job is to win back users who stop paying, and you get a base salary plus bonuses, including a percentage of what you recover. To apply, go to pagepilot.orxon.co and send us a short Loom. I watch every one.
+Hey, I'm Valentin from Page Pilot. We're a remote team building AI tools for Shopify sellers, used by over 400,000 merchants. We're hiring a Business Development Manager: someone who understands SaaS and e-commerce and can do a bit of everything. Your main job is to win back users who stop paying, and you get a base salary plus bonuses, including a percentage of what you recover. To apply, go to job.pagepilot.ai and send us a short Loom. I watch every one.
