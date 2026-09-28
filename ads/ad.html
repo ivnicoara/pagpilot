@@ -6,11 +6,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..900&display=block&subset=latin-ext" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { width: 1080px; height: 1350px; background: #0a0a0a; overflow: hidden; }
+  html, body { width: 1080px; height: 1350px; background: #050015; overflow: hidden; }
   body { font-family: "Inter", sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
   body.sq, body.sq html { height: 1080px; }
 
-  .ad { position: relative; width: 1080px; height: 1350px; background: #0a0a0a; overflow: hidden; }
+  .ad { position: relative; width: 1080px; height: 1350px; background: #050015; overflow: hidden; }
   .sq .ad { height: 1080px; }
 
   /* Photo: Unsplash (free licence), laptop with an online store */
@@ -18,23 +18,23 @@
     background: url("photo.jpg") no-repeat center 38% / cover; }
   .sq .photo { height: 580px; background-position: center 42%; }
   .photo::after { content: ""; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(10,10,10,0) 45%, rgba(10,10,10,.85) 82%, #0a0a0a 100%); }
+    background: linear-gradient(180deg, rgba(5,0,21,0) 45%, rgba(5,0,21,.85) 82%, #050015 100%); }
 
-  .tag { position: absolute; top: 48px; left: 56px; z-index: 2; background: #fcff00; color: #0a0a0a;
+  .tag { position: absolute; top: 48px; left: 56px; z-index: 2; background: #6959ff; color: #fff;
     font-weight: 900; font-size: 34px; letter-spacing: .06em; padding: 14px 26px; border-radius: 999px; }
-  .brand { position: absolute; top: 48px; right: 56px; z-index: 2; background: rgba(10,10,10,.82);
+  .brand { position: absolute; top: 48px; right: 56px; z-index: 2; background: rgba(5,0,21,.82);
     padding: 16px 26px; border-radius: 999px; display: flex; align-items: center; }
   .brand img { height: 40px; width: auto; display: block; }
 
   .content { position: absolute; left: 56px; right: 56px; bottom: 56px; z-index: 2; display: grid; gap: 26px; }
-  .kicker { font-size: 34px; font-weight: 700; line-height: 1.25; color: #dfe4e1; }
-  .kicker b { background: linear-gradient(90deg,#4bfe85,#00dbff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .kicker { font-size: 34px; font-weight: 700; line-height: 1.25; color: #e4e1f3; }
+  .kicker b { background: linear-gradient(90deg,#b3a4ff,#7d6bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
   h1 { font-size: 92px; font-weight: 900; line-height: .98; letter-spacing: -0.035em; }
   .sq h1 { font-size: 78px; }
   .chips { display: flex; flex-wrap: wrap; gap: 12px; }
-  .chip { font-size: 26px; font-weight: 600; padding: 12px 20px; border-radius: 999px; background: #1a1c1b; border: 1.5px solid #2e3230; color: #e6ebe8; }
-  .chip.g { border-color: #5fd5b6; color: #a5e3b9; }
-  .cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; background: #fcff00; color: #0a0a0a;
+  .chip { font-size: 26px; font-weight: 600; padding: 12px 20px; border-radius: 999px; background: #16113a; border: 1.5px solid #2e2760; color: #e8e5f5; }
+  .chip.g { border-color: #ae8ff2; color: #d6cfff; }
+  .cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; background: #6959ff; color: #fff;
     border-radius: 22px; padding: 26px 32px; }
   .cta span { font-size: 30px; font-weight: 700; }
   .cta b { font-size: 38px; font-weight: 900; letter-spacing: -0.01em; }

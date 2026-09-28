@@ -12,11 +12,11 @@
 [hidden]{display:none!important}
 .logo-img{height:26px;width:auto;display:block}
 :root {
-  --black: #0a0a0a; --ink: #111312; --ink-2: #3f4156; --muted: #6b716e; --line: #e3e7e5; --soft: #f6f8f7;
-  --white: #fff; --mint-bg: #f1fff9; --mint: #a5e3b9; --green: #059f70; --green-dark: #047a56; --teal: #5fd5b6;
-  --neon: #fcff00; --star: #ffa132; --red: #d13438; --red-bg: #fff4f4; --blue: #2563eb; --blue-bg: #eef4ff;
+  --black: #050015; --ink: #110b30; --ink-2: #3f4156; --muted: #6b6785; --line: #e6e2f5; --soft: #f7f5fd;
+  --white: #fff; --mint-bg: #f9f7ff; --mint: #d6cfff; --green: #6959ff; --green-dark: #4922ff; --teal: #ae8ff2;
+  --neon: #6959ff; --star: #ffa132; --red: #d13438; --red-bg: #fff4f4; --blue: #2563eb; --blue-bg: #eef4ff;
   --purple: #7c3aed; --purple-bg: #f4efff;
-  --grad: linear-gradient(90deg, #4bfe85 0%, #00dbff 100%);
+  --grad: linear-gradient(90deg, #b3a4ff 0%, #7d6bff 100%);
   --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color-scheme: light;
 }
@@ -31,13 +31,13 @@ a { color: var(--green); }
 .nav { background: var(--black); color: var(--white); height: 56px; display: flex; align-items: center; justify-content: space-between; padding-inline: 20px; gap: 12px; position: sticky; top: 0; z-index: 10; }
 .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.02em; }
 .logo-mark { width: 28px; height: 28px; border-radius: 8px; background: var(--grad); display: grid; place-items: center; color: var(--black); }
-.logo small { color: #9aa19e; font-weight: 500; }
+.logo small { color: #a39fc2; font-weight: 500; }
 .nav-actions { display: flex; gap: 8px; }
 a.btn { text-decoration: none; }
 .btn { border: 0; border-radius: 999px; padding: 8px 14px; font-weight: 600; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
-.btn-dark { background: #1d1f1e; color: #dfe4e1; border: 1px solid #2c2f2d; }
-.btn-dark:hover { background: #262928; }
-.btn-neon { background: var(--neon); color: var(--black); }
+.btn-dark { background: #1a1440; color: #e4e1f3; border: 1px solid #2b2459; }
+.btn-dark:hover { background: #221b4b; }
+.btn-neon { background: var(--neon); color: #fff; }
 .btn-green { background: var(--green); color: var(--white); }
 .btn-green:hover { background: var(--green-dark); }
 .btn-ghost { background: var(--white); border: 1px solid var(--line); }
@@ -45,11 +45,11 @@ a.btn { text-decoration: none; }
 
 /* Login */
 .login { min-height: calc(100% - 56px); display: grid; place-items: center; padding: 24px 16px; }
-.login form { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 32px; width: 100%; max-width: 380px; display: grid; gap: 14px; box-shadow: 0 20px 60px rgba(10,30,20,.08); }
+.login form { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 32px; width: 100%; max-width: 380px; display: grid; gap: 14px; box-shadow: 0 20px 60px rgba(30,15,90,.10); }
 .login h1 { margin: 0; font-size: 22px; letter-spacing: -0.02em; }
 .login p { margin: 0; color: var(--muted); }
 .input { width: 100%; padding: 11px 13px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--white); }
-.input:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 4px rgba(5,159,112,.12); }
+.input:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 4px rgba(105,89,255,.15); }
 .login .err { color: var(--red); font-size: 13px; min-height: 18px; }
 
 /* Layout */
@@ -85,9 +85,9 @@ a.btn { text-decoration: none; }
 .s-interview { background: var(--purple-bg); color: var(--purple); }
 .s-task { background: #fff7e8; color: #b45309; }
 .s-rejected { background: var(--red-bg); color: var(--red); }
-.s-hired { background: var(--black); color: var(--neon); }
+.s-hired { background: var(--black); color: #ae8ff2; }
 .flag-bad { background: var(--red-bg); color: var(--red); }
-.flag-ok { background: #effaf4; color: var(--green-dark); }
+.flag-ok { background: #f0edff; color: var(--green-dark); }
 .score-pill { background: var(--black); color: var(--white); font-variant-numeric: tabular-nums; }
 
 /* Detail */
@@ -103,10 +103,10 @@ a.btn { text-decoration: none; }
 .statusbar button { border: 1px solid var(--line); background: var(--white); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 600; text-transform: capitalize; }
 .statusbar button[aria-pressed="true"] { background: var(--black); color: var(--white); border-color: var(--black); }
 .loom { display: flex; align-items: center; gap: 14px; background: var(--black); color: var(--white); border-radius: 14px; padding: 16px 18px; text-decoration: none; }
-.loom:hover { background: #1a1c1b; }
+.loom:hover { background: #16113a; }
 .loom .play { width: 44px; height: 44px; border-radius: 50%; background: var(--neon); display: grid; place-items: center; flex: none; }
 .loom b { display: block; }
-.loom span { color: #9aa19e; font-size: 13px; word-break: break-all; }
+.loom span { color: #a39fc2; font-size: 13px; word-break: break-all; }
 .kv { display: grid; grid-template-columns: 170px 1fr; gap: 8px 16px; margin: 0; }
 .kv dt { color: var(--muted); font-weight: 600; }
 .kv dd { margin: 0; word-break: break-word; }
@@ -401,7 +401,7 @@ function phase2Card(a) {
     const tot2 = sum(a.scores2);
     html += `<div class="p2-sub">
       <div class="hd"><b>Their submission</b><span style="font-size:13px;color:var(--muted)">${esc(sub.hours)} hours${sub.version > 1 ? " · version " + sub.version : ""}</span></div>
-      <a class="loom" href="${esc(url(sub.loom))}" target="_blank" rel="noopener"><span class="play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0a0a0a" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span><div><b>Watch walkthrough Loom</b><span>${esc(sub.loom)}</span></div></a>
+      <a class="loom" href="${esc(url(sub.loom))}" target="_blank" rel="noopener"><span class="play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span><div><b>Watch walkthrough Loom</b><span>${esc(sub.loom)}</span></div></a>
       <div class="p2-actions">
         ${sub.plan_link ? `<a class="btn btn-ghost" href="${esc(url(sub.plan_link))}" target="_blank" rel="noopener">Full plan ↗</a>` : ""}
         <a class="btn btn-ghost" href="${esc(url(sub.builder_link))}" target="_blank" rel="noopener">Their tracker ↗</a>
@@ -470,7 +470,7 @@ function showDetail(id) {
     ${phase2Card(a)}
 
     <a class="loom" href="${esc(url(a.loom))}" target="_blank" rel="noopener">
-      <span class="play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0a0a0a" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span>
+      <span class="play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span>
       <div><b>Watch Loom video${a.loom_is_loom === false ? " (not a loom.com link)" : ""}</b><span>${esc(a.loom)}</span></div>
     </a>
 
