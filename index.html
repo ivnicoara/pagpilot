@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Business Development Manager · Page Pilot &amp; Store Pilot</title>
+<meta name="description" content="Page Pilot and Store Pilot are hiring a Business Development Manager with SaaS and e-commerce experience. $3,000/month + bonuses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..900&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+/* Store Pilot / Page Pilot brand: Inter, black + white, green, neon yellow, green→cyan gradient */
+:root {
+  --black: #0a0a0a;
+  --ink: #111312;
+  --ink-2: #3f4156;
+  --muted: #6b716e;
+  --line: #e3e7e5;
+  --white: #ffffff;
+  --mint-bg: #f1fff9;
+  --mint: #a5e3b9;
+  --green: #059f70;
+  --green-dark: #047a56;
+  --teal: #5fd5b6;
+  --neon: #fcff00;
+  --star: #ffa132;
+  --grad: linear-gradient(90deg, #4bfe85 0%, #00dbff 100%);
+  --radius: 14px;
+  --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.15; margin: 0; letter-spacing: -0.02em; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
+.narrow { max-width: 760px; }
+
+/* Nav */
+.nav { background: var(--black); color: var(--white); position: sticky; top: 0; z-index: 20; border-bottom: 1px solid #1d1f1e; }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; text-decoration: none; letter-spacing: -0.02em; }
+.logo-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--grad); display: grid; place-items: center; color: var(--black); }
+.logo small { font-weight: 500; color: #9aa19e; font-size: 13px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 700 16px/1 var(--font); text-decoration: none; cursor: pointer;
+  padding: 16px 26px; border-radius: 999px; border: 0;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-neon { background: var(--neon); color: var(--black); box-shadow: 0 6px 24px rgba(252,255,0,.25); }
+.btn-neon:hover { box-shadow: 0 10px 30px rgba(252,255,0,.35); }
+.btn-green { background: var(--green); color: var(--white); }
+.btn-green:hover { background: var(--green-dark); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+.btn-sm { padding: 11px 18px; font-size: 14px; }
+.btn[disabled] { opacity: .5; cursor: not-allowed; transform: none; }
+
+/* Labels / chips */
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
+.chip-dark { background: #1a1c1b; color: #d9dedb; border: 1px solid #2a2d2b; }
+.chip-mint { background: var(--mint-bg); color: var(--green-dark); border: 1px solid var(--mint); }
+.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hl { background: var(--neon); color: var(--black); padding: 0 .2em; border-radius: 4px; }
+</style>
+<style>
+  /* Hero */
+  .hero { background: var(--black); color: var(--white); padding-block: 64px 72px; position: relative; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; inset: auto -20% -60% -20%; height: 70%; background: radial-gradient(closest-side, rgba(75,254,133,.16), transparent); pointer-events: none; }
+  .hero .wrap { position: relative; z-index: 1; display: grid; gap: 40px; }
+  .hero-top { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 900; max-width: 16ch; }
+  .hero .lede { font-size: clamp(17px, 2vw, 20px); color: #c9cfcc; max-width: 60ch; }
+  .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
+  .hero-cta .note { font-size: 14px; color: #9aa19e; }
+  .hero-grid { display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 40px; align-items: center; }
+  .hero > .wrap { max-width: 1240px; }
+  .hero-copy { display: grid; gap: 24px; }
+
+  /* Video placeholder */
+  .video {
+    position: relative; aspect-ratio: 16 / 9; width: 100%; max-width: 100%;
+    border-radius: 18px; overflow: hidden; background: #141615;
+    border: 1px solid #2a2d2b; box-shadow: 0 30px 80px rgba(0,0,0,.5);
+  }
+  .video iframe, .video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video-ph { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 20px;
+    background: radial-gradient(120% 90% at 50% 0%, #1d2a24 0%, #121413 60%); }
+  .video-ph .play { width: 76px; height: 76px; border-radius: 50%; background: var(--neon); display: grid; place-items: center; margin: 0 auto 16px; box-shadow: 0 0 0 10px rgba(252,255,0,.12); }
+  .video-ph .play svg { margin-left: 5px; }
+  .video-ph strong { display: block; font-size: 18px; }
+  .video-ph span { font-size: 14px; color: #9aa19e; }
+  .video-ph .soon { position: absolute; top: 14px; left: 14px; }
+
+  /* Facts bar */
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #232625; border-radius: var(--radius); overflow: hidden; }
+  .fact { padding: 18px 20px; border-right: 1px solid #232625; }
+  .fact:last-child { border-right: 0; }
+  .fact b { display: block; font-size: 20px; font-weight: 800; }
+  .fact span { font-size: 13px; color: #9aa19e; }
+
+  /* Sections */
+  section { padding-block: 80px; }
+  .sec-head { display: grid; gap: 12px; margin-bottom: 40px; max-width: 680px; }
+  .sec-head h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; }
+  .sec-head p { color: var(--muted); font-size: 18px; }
+  .mint { background: var(--mint-bg); }
+
+  /* Products */
+  .products { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .product { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; display: grid; gap: 14px; background: var(--white); }
+  .product h3 { font-size: 22px; display: flex; align-items: center; gap: 10px; }
+  .product p { color: var(--ink-2); }
+  .product a { font-weight: 600; color: var(--green); text-decoration: none; font-size: 15px; }
+  .product a:hover { text-decoration: underline; }
+  .stats { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stars { color: var(--star); letter-spacing: 1px; }
+
+  /* Priority #1 */
+  .priority { background: var(--black); color: var(--white); border-radius: 22px; padding: 40px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; margin-bottom: 28px; }
+  .priority h3 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; margin: 12px 0 14px; }
+  .priority p { color: #c9cfcc; }
+  .priority ul { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .priority li { display: flex; gap: 10px; color: #dfe4e1; }
+  .priority li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: 9px; border-radius: 50%; background: var(--teal); }
+  .flow { display: grid; gap: 10px; }
+  .flow-step { display: flex; align-items: center; gap: 12px; background: #151716; border: 1px solid #262927; border-radius: 12px; padding: 12px 14px; font-size: 14px; }
+  .flow-step .d { flex: none; font-size: 12px; font-weight: 700; color: var(--black); background: var(--mint); border-radius: 6px; padding: 3px 8px; min-width: 52px; text-align: center; }
+  .flow-step.win .d { background: var(--neon); }
+  .flow-cap { font-size: 12px; color: #8b928f; text-align: center; margin-top: 4px; }
+
+  /* Duties grid */
+  .duties { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .duty { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: grid; gap: 10px; align-content: start; background: var(--white); }
+  .duty .ic { width: 42px; height: 42px; border-radius: 10px; background: var(--mint-bg); border: 1px solid var(--mint); display: grid; place-items: center; color: var(--green); }
+  .duty h3 { font-size: 18px; font-weight: 700; }
+  .duty p { color: var(--ink-2); font-size: 15px; }
+
+  /* You */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .list { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+  .list li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; }
+  .list li svg { margin-top: 3px; }
+  .list b { display: block; }
+  .list span { color: var(--ink-2); font-size: 15px; }
+  .box { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; background: var(--white); }
+  .box h3 { font-size: 20px; margin-bottom: 18px; }
+
+  /* Pay */
+  .pay { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .pay-card { border-radius: var(--radius); padding: 28px; border: 1px solid var(--line); background: var(--white); display: grid; gap: 6px; align-content: start; }
+  .pay-card.main { background: var(--black); color: var(--white); border-color: var(--black); }
+  .pay-card .big { font-size: 40px; font-weight: 900; letter-spacing: -0.03em; }
+  .pay-card .lbl { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .pay-card.main .lbl { color: #9aa19e; }
+  .pay-card p { color: var(--ink-2); font-size: 15px; }
+  .pay-card.main p { color: #c9cfcc; }
+
+  /* Process */
+  .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; counter-reset: s; }
+  .step { position: relative; padding: 22px 18px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line); display: grid; gap: 8px; align-content: start; }
+  .step::before { counter-increment: s; content: counter(s); width: 30px; height: 30px; border-radius: 50%; background: var(--green); color: var(--white); font-weight: 800; font-size: 14px; display: grid; place-items: center; }
+  .step b { font-size: 16px; }
+  .step span { font-size: 14px; color: var(--ink-2); }
+  .step small { font-size: 12px; font-weight: 600; color: var(--green); }
+
+  /* Apply CTA */
+  .apply { background: var(--black); color: var(--white); text-align: center; }
+  .apply .wrap { display: grid; gap: 22px; justify-items: center; }
+  .apply h2 { font-size: clamp(30px, 5vw, 52px); font-weight: 900; }
+  .apply p { color: #c9cfcc; max-width: 58ch; font-size: 18px; }
+  .need { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .codeword { border: 1px dashed #3a3e3c; border-radius: 12px; padding: 14px 18px; font-size: 14px; color: #c9cfcc; max-width: 560px; }
+
+  footer { background: var(--black); color: #7d8481; font-size: 13px; border-top: 1px solid #1d1f1e; padding-block: 24px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+
+  @media (max-width: 900px) {
+    .hero-grid, .priority, .two, .products { grid-template-columns: 1fr; }
+    .duties, .pay { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .fact:nth-child(2) { border-right: 0; }
+    .fact:nth-child(-n+2) { border-bottom: 1px solid #232625; }
+    .priority { padding: 28px; }
+  }
+  @media (max-width: 560px) {
+    section { padding-block: 56px; }
+    .duties, .pay, .steps { grid-template-columns: 1fr; }
+    .nav .logo small { display: none; }
+    .hero { padding-block: 40px 56px; }
+  }
+</style>
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/f5fbt667ic.js" async type="module"></script>
+<style>
+  .video wistia-player { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  wistia-player[media-id='f5fbt667ic']:not(:defined) { background: center / cover no-repeat url('https://fast.wistia.com/embed/medias/f5fbt667ic/swatch'); filter: blur(5px); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Page Pilot and Store Pilot careers">
+      <span class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></span>
+      Page Pilot <small>&amp; Store Pilot · Careers</small>
+    </a>
+    <a class="btn btn-neon btn-sm" href="apply.html">Apply now</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-top">
+          <span class="chip chip-dark">Full-time</span>
+          <span class="chip chip-dark">Remote</span>
+          <span class="chip chip-dark">SaaS × E-commerce</span>
+        </div>
+        <h1>Business Development Manager</h1>
+        <p class="lede">We build AI tools used by <b style="color:#fff">400,000+ Shopify merchants</b>. We need one sharp generalist who can win back churned users, grow partnerships, coach our support team and turn ideas into features. A bit of everything, done well.</p>
+        <div class="hero-cta">
+          <a class="btn btn-neon" href="apply.html">Apply for this role
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <span class="note">Takes about 15 minutes. A Loom video is required.</span>
+        </div>
+      </div>
+      <!-- Job video (Wistia) -->
+      <div class="video" id="video">
+        <wistia-player media-id="f5fbt667ic" aspect="1.7777777777777777"></wistia-player>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><b>$3,000<span style="font-size:14px;color:#9aa19e;font-weight:600"> /mo</span></b><span>Base salary</span></div>
+      <div class="fact"><b class="grad-text">+ Bonuses</b><span>% of revenue you recover</span></div>
+      <div class="fact"><b>400K+</b><span>Merchants on Page Pilot</span></div>
+      <div class="fact"><b>Remote</b><span>Work with the founders directly</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="mint" id="company">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Who we are</span>
+      <h2>Two AI products that help people sell on Shopify</h2>
+      <p>We're a team based in Cluj, Romania. Since 2023 we've grown from one product to two, with a small team and a big user base. You'll have real impact from week one, and nobody will micromanage you.</p>
+    </div>
+    <div class="products">
+      <article class="product">
+        <h3><span class="logo-mark" style="width:26px;height:26px;border-radius:7px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>Page Pilot</h3>
+        <p>Paste a product link from AliExpress, Amazon or TikTok Shop and get a high-converting Shopify product page in under a minute. Includes an editor, AI images, ad creatives and 30+ languages.</p>
+        <div class="stats">
+          <span class="chip chip-mint">400K+ merchants</span>
+          <span class="chip chip-mint">1M+ pages created</span>
+          <span class="chip chip-mint">$200M+ revenue generated</span>
+        </div>
+        <a href="https://pagepilot.ai/" target="_blank" rel="noopener">pagepilot.ai →</a>
+      </article>
+      <article class="product">
+        <h3><span class="logo-mark" style="width:26px;height:26px;border-radius:7px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9M3 9h18M3 9v11h18V9M9 20v-6h6v6"/></svg></span>Store Pilot</h3>
+        <p>A complete, branded Shopify store built by AI in about 10 minutes, with 30 winning products preloaded across 8 niches. Made for new dropshippers who want to launch fast.</p>
+        <div class="stats">
+          <span class="chip chip-mint">5,000+ dropshippers</span>
+          <span class="chip chip-mint"><span class="stars">★★★★★</span> 4.8/5</span>
+          <span class="chip chip-mint">Store live in ~10 min</span>
+        </div>
+        <a href="https://store.pagepilot.ai/" target="_blank" rel="noopener">store.pagepilot.ai →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="role">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What you'll do</span>
+      <h2>A little bit of everything, with one clear priority</h2>
+      <p>This is a generalist role. Your week can include a partner call, a support audit, a competitor teardown and a new retention email. The most important part is below.</p>
+    </div>
+
+    <div class="priority">
+      <div>
+        <span class="chip" style="background:var(--neon);color:var(--black)">Priority #1</span>
+        <h3>Win back users who stop paying</h3>
+        <p>Our churn is high right now and we do almost nothing with people who cancel. You'll own this. Design the win-back flows, launch them, measure them and keep improving them.</p>
+        <ul>
+          <li>Find out why people leave: cancel surveys, calls, usage data</li>
+          <li>Build win-back sequences across email, in-app, SMS and calls</li>
+          <li>Test offers, timing and messaging, and report what works</li>
+          <li>Earn a bonus as a percentage of the revenue you recover</li>
+        </ul>
+      </div>
+      <div class="flow" aria-label="Example win-back flow">
+        <div class="flow-step"><span class="d">Day 0</span>User cancels → exit survey: "What didn't work?"</div>
+        <div class="flow-step"><span class="d">Day 2</span>Personal email based on the reason they gave</div>
+        <div class="flow-step"><span class="d">Day 7</span>"Here's what's new" + 1 free month to come back</div>
+        <div class="flow-step"><span class="d">Day 21</span>Call or WhatsApp for high-value accounts</div>
+        <div class="flow-step win"><span class="d">Win</span>User reactivates → you earn % of recovered MRR</div>
+        <p class="flow-cap">Example only. You'll design the real flows.</p>
+      </div>
+    </div>
+
+    <div class="duties">
+      <article class="duty">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div>
+        <h3>Run partner calls</h3>
+        <p>Get on calls with the agencies, affiliates and partners we work with. Check if they bring results and agree on clear next steps.</p>
+      </article>
+      <article class="duty">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
+        <h3>Improve reviews and support</h3>
+        <p>Optimize how our support agents ask for reviews in chat. Read conversations, check they talk to users well, and coach them on what to do better.</p>
+      </article>
+      <article class="duty">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12h8M12 8v8"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></div>
+        <h3>Close API and white-label deals</h3>
+        <p>Find and pitch partners who want to use Store Pilot through our API or sell it under their own brand.</p>
+      </article>
+      <article class="duty">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>Watch the competition</h3>
+        <p>Track what other AI store and page builders launch, how they price, and what users say about them.</p>
+      </article>
+      <article class="duty">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></div>
+        <h3>Bring feature ideas</h3>
+        <p>Turn what you hear from users, partners and competitors into concrete feature proposals for the product team.</p>
+      </article>
+      <article class="duty">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+        <h3>Build your own tools</h3>
+        <p>Need a dashboard, an automation or a small internal platform? Build it yourself with AI, no-code or code, without waiting for developers.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="mint" id="you">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Who you are</span>
+      <h2>Someone who figures things out</h2>
+      <p>We don't need a specialist. We need a person who thinks fast, knows a bit of everything, and understands how online stores make money.</p>
+    </div>
+    <div class="two">
+      <div class="box">
+        <h3>Must have</h3>
+        <ul class="list">
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>SaaS experience</b><span>You know MRR, churn, activation and retention, and you've worked on moving them.</span></div></li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>E-commerce understanding</b><span>You know how Shopify, dropshipping and product pages work, ideally from running a store.</span></div></li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>Generalist mindset</b><span>Comfortable jumping from a partner call to a data sheet to a support chat in one day.</span></div></li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>Builder skills</b><span>You can set up an automation or a simple internal tool yourself using AI, no-code or code.</span></div></li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>AI in your daily work</b><span>You use tools like ChatGPT, Claude or Cursor every day to research, write, analyse and build faster.</span></div></li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>Fluent English</b><span>Clear on calls and in writing, with partners and with our team.</span></div></li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Big plus</h3>
+        <ul class="list">
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--star)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><div><b>You've built a win-back or lifecycle flow</b><span>And you can show us the numbers before and after.</span></div></li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--star)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><div><b>Partnership or BD deals</b><span>API integrations, white-label, affiliate or agency partnerships.</span></div></li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--star)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><div><b>You've managed or coached a support team</b><span>You know what a good chat conversation looks like.</span></div></li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--star)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><div><b>You've run your own Shopify store</b><span>So you know our users' problems first-hand.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pay">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Pay</span>
+      <h2>A fixed salary, and upside when you deliver</h2>
+    </div>
+    <div class="pay">
+      <div class="pay-card main">
+        <span class="lbl">Base</span>
+        <span class="big">$3,000<span style="font-size:18px;font-weight:600;color:#9aa19e"> / month</span></span>
+        <p>Paid monthly. Full-time, remote.</p>
+      </div>
+      <div class="pay-card">
+        <span class="lbl">Recovery bonus</span>
+        <span class="big grad-text" style="-webkit-text-fill-color:transparent">% of MRR</span>
+        <p>A percentage of the revenue you win back from churned users. The better your flows work, the more you earn.</p>
+      </div>
+      <div class="pay-card">
+        <span class="lbl">Performance bonuses</span>
+        <span class="big" style="color:var(--green)">+ more</span>
+        <p>For partnerships you close and other results we agree on together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mint" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Hiring process</span>
+      <h2>Five steps, no long CV reviews</h2>
+      <p>We care more about how you think than about your CV. That's why the first step is a short Loom video.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><b>Apply with a Loom</b><span>A short form plus a 3–5 minute Loom video.</span><small>~15 minutes</small></div>
+      <div class="step"><b>We review</b><span>We watch every Loom and reply to everyone.</span><small>Within 5 working days</small></div>
+      <div class="step"><b>Intro call</b><span>30 minutes with the founder about your experience and ideas.</span><small>30 minutes</small></div>
+      <div class="step"><b>Practical task</b><span>Sketch a real win-back flow for one of our products.</span><small>A few hours</small></div>
+      <div class="step"><b>Offer</b><span>We agree on your bonus structure and start date.</span><small>Start ASAP</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="apply" id="apply">
+  <div class="wrap narrow">
+    <span class="eyebrow" style="color:var(--teal)">Ready?</span>
+    <h2>Show us how you think</h2>
+    <p>Before you start, have these ready. Applications without a Loom video are not reviewed.</p>
+    <div class="need">
+      <span class="chip chip-dark">🎥 Loom video, 3–5 min</span>
+      <span class="chip chip-dark">🔗 LinkedIn profile</span>
+      <span class="chip chip-dark">💡 One win-back idea for our products</span>
+    </div>
+    <a class="btn btn-neon" href="apply.html">Start my application
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <p class="codeword">We want people who read to the end. The form will ask you for a code word. The code word is <b style="color:var(--neon)">COMEBACK</b>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Page Pilot &amp; Store Pilot</span>
+    <span><a href="https://pagepilot.ai/" target="_blank" rel="noopener">pagepilot.ai</a> · <a href="https://store.pagepilot.ai/" target="_blank" rel="noopener">store.pagepilot.ai</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

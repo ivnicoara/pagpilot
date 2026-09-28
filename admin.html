@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Applicants · BDM Hiring Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..900&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root {
+  --black: #0a0a0a; --ink: #111312; --ink-2: #3f4156; --muted: #6b716e; --line: #e3e7e5; --soft: #f6f8f7;
+  --white: #fff; --mint-bg: #f1fff9; --mint: #a5e3b9; --green: #059f70; --green-dark: #047a56; --teal: #5fd5b6;
+  --neon: #fcff00; --star: #ffa132; --red: #d13438; --red-bg: #fff4f4; --blue: #2563eb; --blue-bg: #eef4ff;
+  --purple: #7c3aed; --purple-bg: #f4efff;
+  --grad: linear-gradient(90deg, #4bfe85 0%, #00dbff 100%);
+  --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; font-family: var(--font); font-size: 14px; line-height: 1.5; color: var(--ink); background: var(--soft); -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; border-radius: 6px; }
+a { color: var(--green); }
+
+.nav { background: var(--black); color: var(--white); height: 56px; display: flex; align-items: center; justify-content: space-between; padding-inline: 20px; gap: 12px; position: sticky; top: 0; z-index: 10; }
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.02em; }
+.logo-mark { width: 28px; height: 28px; border-radius: 8px; background: var(--grad); display: grid; place-items: center; color: var(--black); }
+.logo small { color: #9aa19e; font-weight: 500; }
+.nav-actions { display: flex; gap: 8px; }
+a.btn { text-decoration: none; }
+.btn { border: 0; border-radius: 999px; padding: 8px 14px; font-weight: 600; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
+.btn-dark { background: #1d1f1e; color: #dfe4e1; border: 1px solid #2c2f2d; }
+.btn-dark:hover { background: #262928; }
+.btn-neon { background: var(--neon); color: var(--black); }
+.btn-green { background: var(--green); color: var(--white); }
+.btn-green:hover { background: var(--green-dark); }
+.btn-ghost { background: var(--white); border: 1px solid var(--line); }
+.btn[disabled] { opacity: .5; cursor: default; }
+
+/* Login */
+.login { min-height: calc(100% - 56px); display: grid; place-items: center; padding: 24px 16px; }
+.login form { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 32px; width: 100%; max-width: 380px; display: grid; gap: 14px; box-shadow: 0 20px 60px rgba(10,30,20,.08); }
+.login h1 { margin: 0; font-size: 22px; letter-spacing: -0.02em; }
+.login p { margin: 0; color: var(--muted); }
+.input { width: 100%; padding: 11px 13px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--white); }
+.input:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 4px rgba(5,159,112,.12); }
+.login .err { color: var(--red); font-size: 13px; min-height: 18px; }
+
+/* Layout */
+.app { display: grid; grid-template-columns: minmax(320px, 420px) 1fr; height: calc(100% - 56px); }
+.side { border-right: 1px solid var(--line); background: var(--white); display: flex; flex-direction: column; min-height: 0; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border-bottom: 1px solid var(--line); }
+.stat { background: var(--white); padding: 12px 14px; }
+.stat b { display: block; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 12px; color: var(--muted); }
+.filters { padding: 12px; display: grid; gap: 10px; border-bottom: 1px solid var(--line); }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.tab { border: 1px solid var(--line); background: var(--white); border-radius: 999px; padding: 5px 11px; font-size: 12px; font-weight: 600; color: var(--ink-2); }
+.tab[aria-pressed="true"] { background: var(--black); color: var(--white); border-color: var(--black); }
+.tab .c { font-variant-numeric: tabular-nums; opacity: .6; margin-left: 4px; }
+.frow { display: flex; gap: 8px; align-items: center; }
+.frow select { padding: 8px 10px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--white); font-size: 13px; }
+.chk { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-2); white-space: nowrap; }
+.chk input { accent-color: var(--green); }
+
+.list { overflow-y: auto; flex: 1; min-height: 0; }
+.item { width: 100%; text-align: left; border: 0; border-bottom: 1px solid var(--line); background: var(--white); padding: 12px 14px; display: grid; gap: 4px; }
+.item:hover { background: var(--soft); }
+.item[aria-current="true"] { background: var(--mint-bg); box-shadow: inset 3px 0 0 var(--green); }
+.item .r1 { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.item .nm { font-weight: 700; font-size: 14px; }
+.item .r2 { color: var(--muted); font-size: 12px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.item .unread { width: 8px; height: 8px; border-radius: 50%; background: var(--green); display: inline-block; }
+.empty { padding: 40px 20px; text-align: center; color: var(--muted); }
+
+.pill { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; text-transform: capitalize; white-space: nowrap; }
+.s-new { background: var(--mint-bg); color: var(--green-dark); border: 1px solid var(--mint); }
+.s-shortlisted { background: var(--blue-bg); color: var(--blue); }
+.s-interview { background: var(--purple-bg); color: var(--purple); }
+.s-task { background: #fff7e8; color: #b45309; }
+.s-rejected { background: var(--red-bg); color: var(--red); }
+.s-hired { background: var(--black); color: var(--neon); }
+.flag-bad { background: var(--red-bg); color: var(--red); }
+.flag-ok { background: #effaf4; color: var(--green-dark); }
+.score-pill { background: var(--black); color: var(--white); font-variant-numeric: tabular-nums; }
+
+/* Detail */
+.detail { overflow-y: auto; min-height: 0; padding: 24px; }
+.detail-inner { max-width: 860px; margin: 0 auto; display: grid; gap: 18px; }
+.dhead { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+.dhead h2 { margin: 0; font-size: 26px; letter-spacing: -0.02em; }
+.dhead .sub { color: var(--muted); margin-top: 4px; display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+.card h3 { margin: 0 0 12px; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.statusbar { display: flex; flex-wrap: wrap; gap: 6px; }
+.statusbar button { border: 1px solid var(--line); background: var(--white); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 600; text-transform: capitalize; }
+.statusbar button[aria-pressed="true"] { background: var(--black); color: var(--white); border-color: var(--black); }
+.loom { display: flex; align-items: center; gap: 14px; background: var(--black); color: var(--white); border-radius: 14px; padding: 16px 18px; text-decoration: none; }
+.loom:hover { background: #1a1c1b; }
+.loom .play { width: 44px; height: 44px; border-radius: 50%; background: var(--neon); display: grid; place-items: center; flex: none; }
+.loom b { display: block; }
+.loom span { color: #9aa19e; font-size: 13px; word-break: break-all; }
+.kv { display: grid; grid-template-columns: 170px 1fr; gap: 8px 16px; margin: 0; }
+.kv dt { color: var(--muted); font-weight: 600; }
+.kv dd { margin: 0; word-break: break-word; }
+.answer + .answer { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+.answer .q { font-weight: 700; margin-bottom: 6px; }
+.answer .a { white-space: pre-wrap; color: var(--ink-2); }
+.answer .a.none { color: var(--muted); font-style: italic; }
+
+.scores { display: grid; gap: 10px; }
+.srow { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
+.srow .lbl b { display: block; font-size: 14px; }
+.srow .lbl span { font-size: 12px; color: var(--muted); }
+.dots { display: flex; gap: 4px; }
+.dots button { width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--line); background: var(--white); font-weight: 700; font-size: 13px; font-variant-numeric: tabular-nums; }
+.dots button[aria-pressed="true"] { background: var(--green); color: var(--white); border-color: var(--green); }
+.total { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--line); padding-top: 12px; margin-top: 4px; }
+.total b { font-size: 22px; font-variant-numeric: tabular-nums; }
+.total span { color: var(--muted); font-size: 13px; }
+textarea.notes { width: 100%; min-height: 110px; resize: vertical; padding: 11px 13px; border-radius: 10px; border: 1.5px solid var(--line); }
+textarea.notes:focus { outline: none; border-color: var(--green); }
+.saverow { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; font-size: 12px; color: var(--muted); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+.placeholder { height: 100%; display: grid; place-items: center; color: var(--muted); text-align: center; }
+.p2-box { display: grid; gap: 12px; }
+.p2-link { display: flex; gap: 8px; align-items: center; }
+.p2-link input { flex: 1; min-width: 0; padding: 9px 12px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--soft); font-size: 13px; }
+.p2-meta { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--muted); font-size: 13px; }
+.p2-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.p2-sub { border: 1px solid var(--mint); background: var(--mint-bg); border-radius: 14px; padding: 18px; display: grid; gap: 14px; }
+.p2-sub .hd { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; align-items: center; }
+.p2-sub .hd b { font-size: 16px; }
+.p2-sub .answer .a { color: var(--ink); }
+.p2-sub .answer + .answer { border-top-color: var(--mint); }
+.card.p2 { border-color: var(--ink); }
+.p2-intro { color: var(--ink-2); margin: 0 0 12px; }
+.p2-intro li { margin: 2px 0; }
+.reject-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+.btn-red { background: var(--red); color: var(--white); }
+.btn-red:hover { background: #b3261e; }
+.reject-note { font-size: 12px; color: var(--muted); }
+.toast { position: fixed; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); background: var(--black); color: var(--white); padding: 10px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; z-index: 50; }
+.back-btn { display: none; }
+
+@media (max-width: 1000px) { .grid2 { grid-template-columns: 1fr; } }
+@media (max-width: 760px) {
+  .app { grid-template-columns: 1fr; }
+  .app.showing .side { display: none; }
+  .app:not(.showing) .detail { display: none; }
+  .back-btn { display: inline-flex; margin-bottom: 4px; }
+  .detail { padding: 16px; }
+  .kv { grid-template-columns: 1fr; gap: 2px; }
+  .kv dd { margin-bottom: 8px; }
+  .logo small { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="logo">
+    <span class="logo-mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></span>
+    Hiring Admin <small>· Business Development Manager</small>
+  </div>
+  <div class="nav-actions" id="navActions" hidden>
+    <button class="btn btn-dark" id="refresh" type="button">↻ Refresh</button>
+    <button class="btn btn-dark" id="csv" type="button">Export CSV</button>
+    <button class="btn btn-dark" id="logout" type="button">Log out</button>
+  </div>
+</nav>
+
+<div class="login" id="login">
+  <form id="loginForm">
+    <h1>Admin login</h1>
+    <p>Enter the admin password to see applications.</p>
+    <label for="pw" class="sr" style="font-weight:600">Password</label>
+    <input class="input" id="pw" type="password" autocomplete="current-password" required>
+    <div class="err" id="loginErr"></div>
+    <button class="btn btn-green" type="submit" style="justify-content:center;padding:12px">Log in</button>
+  </form>
+</div>
+
+<div class="app" id="app" hidden>
+  <aside class="side">
+    <div class="stats">
+      <div class="stat"><b id="stTotal">0</b><span>Applications</span></div>
+      <div class="stat"><b id="stNew">0</b><span>Not reviewed</span></div>
+      <div class="stat"><b id="stWeek">0</b><span>Last 7 days</span></div>
+    </div>
+    <div class="filters">
+      <input class="input" id="search" type="search" placeholder="Search name, email, location, answers…">
+      <div class="tabs" id="tabs"></div>
+      <div class="frow">
+        <select id="sort" aria-label="Sort">
+          <option value="new">Newest first</option>
+          <option value="old">Oldest first</option>
+          <option value="score">Highest score</option>
+        </select>
+        <label class="chk"><input type="checkbox" id="onlyCode"> Code word correct</label>
+      </div>
+    </div>
+    <div class="list" id="list"></div>
+  </aside>
+  <main class="detail" id="detail">
+    <div class="placeholder">Select an applicant to see their answers.</div>
+  </main>
+</div>
+
+<script>
+const API = "/api/admin/applications";
+const PW_KEY = "bdm-admin-pw";
+const STATUSES = ["new", "shortlisted", "interview", "task", "rejected", "hired"];
+const STATUS_LABEL = { new: "New", shortlisted: "Shortlisted", interview: "Interview", task: "Phase 2", rejected: "Rejected", hired: "Hired" };
+const SCORES = [
+  { k: "loom", t: "Loom & communication", d: "Clear, confident, structured, good English" },
+  { k: "retention", t: "Retention thinking", d: "Win-back message and idea: specific, empathetic, smart offer" },
+  { k: "ecom", t: "SaaS + e-com knowledge", d: "Understands MRR, churn, Shopify, dropshippers" },
+  { k: "ai", t: "AI skills", d: "Uses AI daily with real examples, knows the right tools" },
+  { k: "builder", t: "Builder skills", d: "Has built tools/automations with AI, no-code or code" },
+  { k: "bd", t: "BD & partnerships", d: "Can run partner calls and close API/white-label deals" }
+];
+const SCORES2 = [
+  { k: "plan", t: "Win-back plan", d: "Smart groups, right channels and timing, realistic offers" },
+  { k: "copy", t: "Message quality", d: "Would you send these messages as they are?" },
+  { k: "support", t: "Support & reviews", d: "Sharp feedback for agents, natural review ask" },
+  { k: "partners", t: "Partnerships", d: "Relevant partners, strong outreach message" },
+  { k: "builder", t: "Tracker / builder", d: "Works, clear, built fast with the right tools" }
+];
+const sum = o => { const v = Object.values(o || {}); return v.length ? v.reduce((x, y) => x + y, 0) : null; };
+
+let pw = "";
+let apps = [];
+let selectedId = null;
+let filter = "all";
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmtDate = iso => iso ? new Date(iso).toLocaleString(undefined, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) : "";
+const scoreOf = a => { const v = Object.values(a.scores || {}); return v.length ? v.reduce((x, y) => x + y, 0) : null; };
+const taskLink = a => a.phase2 ? `${location.origin}/task?a=${encodeURIComponent(a.id)}&t=${a.phase2.token}` : "";
+const url = u => /^https?:\/\//i.test(u || "") ? u : "https://" + String(u || "").replace(/^\/+/, "");
+
+function toast(msg) {
+  const t = document.createElement("div");
+  t.className = "toast"; t.textContent = msg;
+  document.body.append(t); setTimeout(() => t.remove(), 2200);
+}
+
+async function api(method, body) {
+  const res = await fetch(API, {
+    method,
+    headers: { "Authorization": "Bearer " + pw, "Content-Type": "application/json" },
+    body: body ? JSON.stringify(body) : undefined
+  });
+  if (res.status === 401) { logout("Wrong password. Try again."); throw new Error("unauthorized"); }
+  if (!res.ok) throw new Error("HTTP " + res.status);
+  return res.json();
+}
+
+async function load() {
+  $("list").innerHTML = '<div class="empty">Loading applications…</div>';
+  try {
+    const data = await api("GET");
+    apps = data.applications || [];
+    $("login").hidden = true; $("app").hidden = false; $("navActions").hidden = false;
+    render();
+    if (selectedId) showDetail(selectedId);
+  } catch (e) {
+    if (e.message !== "unauthorized") $("list").innerHTML = '<div class="empty">Could not load applications. Press Refresh to try again.</div>';
+  }
+}
+
+function filtered() {
+  const q = $("search").value.trim().toLowerCase();
+  let out = apps.filter(a => filter === "all" || a.status === filter);
+  if ($("onlyCode").checked) out = out.filter(a => a.codeword_correct);
+  if (q) out = out.filter(a => [a.name, a.email, a.location, a.ai_usage, (a.ai_tools || []).join(" "), a.winback, a.built, a.partners, a.extra, a.notes].join(" ").toLowerCase().includes(q));
+  const s = $("sort").value;
+  if (s === "old") out = [...out].reverse();
+  if (s === "score") out = [...out].sort((a, b) => (scoreOf(b) ?? -1) - (scoreOf(a) ?? -1));
+  return out;
+}
+
+function render() {
+  const weekAgo = Date.now() - 7 * 864e5;
+  $("stTotal").textContent = apps.length;
+  $("stNew").textContent = apps.filter(a => a.status === "new").length;
+  $("stWeek").textContent = apps.filter(a => new Date(a.submitted_at).getTime() > weekAgo).length;
+
+  const counts = { all: apps.length };
+  STATUSES.forEach(s => counts[s] = apps.filter(a => a.status === s).length);
+  $("tabs").innerHTML = ["all", ...STATUSES].map(s =>
+    `<button class="tab" type="button" data-f="${s}" aria-pressed="${filter === s}">${s === "all" ? "All" : STATUS_LABEL[s]}<span class="c">${counts[s]}</span></button>`
+  ).join("");
+
+  const list = filtered();
+  if (!apps.length) { $("list").innerHTML = '<div class="empty">No applications yet. They will show up here as soon as someone applies.</div>'; return; }
+  if (!list.length) { $("list").innerHTML = '<div class="empty">No applicants match these filters.</div>'; return; }
+  $("list").innerHTML = list.map(a => {
+    const sc = scoreOf(a);
+    return `<button class="item" type="button" data-id="${esc(a.id)}" aria-current="${a.id === selectedId}">
+      <div class="r1"><span class="nm">${a.status === "new" ? '<span class="unread"></span> ' : ""}${esc(a.name)}</span><span class="pill s-${esc(a.status)}">${esc(STATUS_LABEL[a.status] || a.status)}</span></div>
+      <div class="r2"><span>${esc(a.location)}</span><span>·</span><span>${esc(fmtDate(a.submitted_at))}</span>
+        ${a.codeword_correct ? "" : '<span class="pill flag-bad">Code word ✗</span>'}
+        ${sc !== null ? `<span class="pill score-pill">${sc}/${SCORES.length * 5}</span>` : ""}
+        ${a.phase2 ? (a.phase2.submission ? `<span class="pill s-hired">Task in${sum(a.scores2) !== null ? " · " + sum(a.scores2) + "/25" : ""}</span>` : '<span class="pill s-task">Task sent</span>') : ""}
+      </div>
+    </button>`;
+  }).join("");
+}
+
+function scoreRows(defs, key, obj) {
+  return defs.map(s => `<div class="srow"><div class="lbl"><b>${s.t}</b><span>${s.d}</span></div>
+    <div class="dots" data-set="${key}" data-k="${s.k}">${[1,2,3,4,5].map(n => `<button type="button" data-n="${n}" aria-pressed="${(obj || {})[s.k] === n}" aria-label="${s.t} ${n}">${n}</button>`).join("")}</div></div>`).join("");
+}
+
+const REJECT_SUBJECT = "Your application: Business Development Manager at Page Pilot";
+function rejectionText(a) {
+  const first = String(a.name || "").split(" ")[0] || "there";
+  if (a.phase2 && a.phase2.submission) {
+    return `Hi ${first},
+
+Thank you for the time and effort you put into the test task. We really appreciate it.
+
+After reviewing all the submissions carefully, we've decided to move forward with other candidates whose experience is a closer fit for what we need right now. This was a hard decision, and it isn't a reflection of your ability.
+
+We'd be happy to keep your details for future roles. Wishing you all the best with your next step.
+
+Valentin
+HR Manager, Page Pilot`;
+  }
+  return `Hi ${first},
+
+Thank you for applying for the Business Development Manager role at Page Pilot and for recording your Loom.
+
+We received a lot of strong applications, and after reviewing them we've decided not to move forward with yours this time. We're looking for a very specific mix of SaaS, e-commerce and AI experience for this role.
+
+We'd be happy to keep your details for future roles. Thanks again for your interest, and good luck!
+
+Valentin
+HR Manager, Page Pilot`;
+}
+const gmailLink = a => "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(a.email) + "&su=" + encodeURIComponent(REJECT_SUBJECT) + "&body=" + encodeURIComponent(rejectionText(a));
+const mailtoLink = a => "mailto:" + encodeURIComponent(a.email) + "?subject=" + encodeURIComponent(REJECT_SUBJECT) + "&body=" + encodeURIComponent(rejectionText(a));
+
+async function markRejected(a) {
+  try {
+    const out = await api("PATCH", { id: a.id, action: "rejection_sent" });
+    Object.assign(a, out.application);
+    render(); showDetail(a.id);
+    toast("Marked as rejected. Press Send in your email.");
+  } catch (e) { if (e.message !== "unauthorized") toast("Email opened, but the status could not be saved."); }
+}
+
+function inviteText(a) {
+  const first = String(a.name || "").split(" ")[0];
+  const dl = new Date(a.phase2.deadline).toLocaleString("en-GB", { weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
+  return `Hi ${first},
+
+Thanks for your application and your Loom, we really enjoyed it. You're through to Phase 2!
+
+Phase 2 is a short test task (about 3-4 hours). It's the same kind of work you'd do in your first weeks: a win-back plan for churned users, a quick support review, partnership ideas and a small tracker. Everything is on this page:
+
+${taskLink(a)}
+
+Please submit it by ${dl}. After that we'll book a final call where you present your work to us.
+
+Good luck!
+Valentin
+HR Manager, Page Pilot`;
+}
+
+function phase2Card(a) {
+  const p = a.phase2;
+  if (!p) {
+    return `<div class="card p2"><h3>Phase 2 · Test task</h3>
+      <ul class="p2-intro"><li>Win-back plan for Page Pilot (main part)</li><li>Support chat review and review ask</li><li>5 API / white-label partners</li><li>A small tracker they build themselves</li></ul>
+      <button class="btn btn-green" type="button" data-action="start2">Send Phase 2 →</button>
+      <span style="color:var(--muted);font-size:12px;margin-left:8px">Creates a private link, 5-day deadline</span></div>`;
+  }
+  const sub = p.submission;
+  const fmt = iso => new Date(iso).toLocaleString(undefined, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+  const overdue = !sub && new Date() > new Date(p.deadline);
+  let html = `<div class="card p2"><h3>Phase 2 · Test task</h3><div class="p2-box">
+    <div class="p2-meta"><span>Sent ${esc(fmt(p.sent_at))}</span><span>Deadline ${esc(fmt(p.deadline))}</span>
+      ${sub ? `<span class="pill s-hired">Submitted ${esc(fmt(sub.submitted_at))}</span>${sub.late ? '<span class="pill flag-bad">Late</span>' : ""}` : overdue ? '<span class="pill flag-bad">Overdue</span>' : '<span class="pill s-task">Waiting for submission</span>'}</div>
+    <div class="p2-link"><input readonly value="${esc(taskLink(a))}" aria-label="Phase 2 link"><button class="btn btn-ghost" type="button" data-action="copyLink">Copy link</button></div>
+    <div class="p2-actions">
+      <button class="btn btn-green" type="button" data-action="copyInvite">Copy invite message</button>
+      <a class="btn btn-ghost" href="${esc(taskLink(a))}" target="_blank" rel="noopener">Open task page ↗</a>
+      <button class="btn btn-ghost" type="button" data-action="start2" title="Creates a new link and resets the 5-day deadline. The old link stops working.">New link / extend deadline</button>
+    </div>`;
+  if (sub) {
+    const tot2 = sum(a.scores2);
+    html += `<div class="p2-sub">
+      <div class="hd"><b>Their submission</b><span style="font-size:13px;color:var(--muted)">${esc(sub.hours)} hours${sub.version > 1 ? " · version " + sub.version : ""}</span></div>
+      <a class="loom" href="${esc(url(sub.loom))}" target="_blank" rel="noopener"><span class="play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0a0a0a" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span><div><b>Watch walkthrough Loom</b><span>${esc(sub.loom)}</span></div></a>
+      <div class="p2-actions">
+        ${sub.plan_link ? `<a class="btn btn-ghost" href="${esc(url(sub.plan_link))}" target="_blank" rel="noopener">Full plan ↗</a>` : ""}
+        <a class="btn btn-ghost" href="${esc(url(sub.builder_link))}" target="_blank" rel="noopener">Their tracker ↗</a>
+      </div>
+      <div>
+        ${answer("Part 1 · Churn groups", sub.segments)}
+        ${answer("Part 1 · Win-back messages", sub.messages)}
+        ${answer("Part 1 · How they'd measure it", sub.measure)}
+        ${answer("Part 2 · Feedback for support agents", sub.support)}
+        ${answer("Part 2 · Review ask message", sub.review_ask)}
+        ${answer("Part 3 · Partners + outreach", sub.partners)}
+        ${answer("Part 4 · Built with", sub.builder_note)}
+        ${answer("Their feedback on the task", sub.feedback)}
+      </div>
+      <div style="background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px">
+        <h3>Phase 2 scorecard</h3>
+        <div class="scores">${scoreRows(SCORES2, "scores2", a.scores2)}
+          <div class="total"><span>Phase 2 total</span><b>${tot2 ?? "–"}<span style="font-size:14px;color:var(--muted);font-weight:600"> / 25</span></b></div>
+        </div>
+      </div>
+    </div>`;
+  }
+  return html + `</div></div>`;
+}
+
+function answer(q, a) {
+  return `<div class="answer"><div class="q">${esc(q)}</div><div class="a ${a ? "" : "none"}">${a ? esc(a) : "No answer"}</div></div>`;
+}
+
+function showDetail(id) {
+  const a = apps.find(x => x.id === id);
+  if (!a) return;
+  // Re-rendering the same candidate: keep scroll position and any unsaved notes
+  const same = selectedId === id && $("notes");
+  const keepScroll = same ? $("detail").scrollTop : 0;
+  const keepWin = same ? window.scrollY : null;
+  const draftNotes = same ? $("notes").value : null;
+  selectedId = id;
+  $("app").classList.add("showing");
+  document.querySelectorAll(".item").forEach(el => el.setAttribute("aria-current", el.dataset.id === id));
+  const sc = scoreOf(a);
+  $("detail").innerHTML = `<div class="detail-inner">
+    <button class="btn btn-ghost back-btn" type="button" id="backBtn">← All applicants</button>
+    <div class="dhead">
+      <div>
+        <h2>${esc(a.name)}</h2>
+        <div class="sub"><span>${esc(a.location)}</span><span>${esc(a.email)}</span><span>Applied ${esc(fmtDate(a.submitted_at))}</span></div>
+      </div>
+      <div class="links">
+        <a class="btn btn-ghost" href="${esc(url(a.linkedin))}" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <button class="btn btn-ghost" type="button" id="copyEmail">Copy email</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Status</h3>
+      <div class="statusbar">${STATUSES.map(s => `<button type="button" data-status="${s}" aria-pressed="${a.status === s}">${STATUS_LABEL[s]}</button>`).join("")}</div>
+      <div class="reject-row">
+        <a class="btn btn-red" href="${esc(gmailLink(a))}" target="_blank" rel="noopener" data-action="reject">✉ Send rejection email</a>
+        <a class="btn btn-ghost" href="${esc(mailtoLink(a))}" data-action="reject">Other email app</a>
+        <button class="btn btn-ghost" type="button" data-action="copyReject">Copy text</button>
+        <span class="reject-note">${a.rejection_sent_at ? "Rejection email opened " + esc(fmtDate(a.rejection_sent_at)) : "Opens a pre-filled email and marks them as rejected"}</span>
+      </div>
+    </div>
+
+    ${phase2Card(a)}
+
+    <a class="loom" href="${esc(url(a.loom))}" target="_blank" rel="noopener">
+      <span class="play"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0a0a0a" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span>
+      <div><b>Watch Loom video${a.loom_is_loom === false ? " (not a loom.com link)" : ""}</b><span>${esc(a.loom)}</span></div>
+    </a>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>Scorecard</h3>
+        <div class="scores">
+          ${SCORES.map(s => `<div class="srow"><div class="lbl"><b>${s.t}</b><span>${s.d}</span></div>
+            <div class="dots" data-set="scores" data-k="${s.k}">${[1,2,3,4,5].map(n => `<button type="button" data-n="${n}" aria-pressed="${(a.scores || {})[s.k] === n}" aria-label="${s.t} ${n}">${n}</button>`).join("")}</div></div>`).join("")}
+          <div class="total"><span>Total</span><b id="totalScore">${sc ?? "–"}<span style="font-size:14px;color:var(--muted);font-weight:600"> / ${SCORES.length * 5}</span></b></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Quick facts</h3>
+        <dl class="kv">
+          <dt>Can start</dt><dd>${esc(a.start)}</dd>
+          <dt>SaaS experience</dt><dd>${esc(a.saas_years)} years</dd>
+          <dt>E-commerce</dt><dd>${esc((a.ecom || []).join(", ") || "None selected")}</dd>
+          <dt>AI level</dt><dd>${esc(a.ai_level || "–")}</dd>
+          <dt>AI tools</dt><dd>${esc([...(a.ai_tools || []), a.ai_other].filter(Boolean).join(", ") || "None selected")}</dd>
+          <dt>Pay $3K + bonus</dt><dd>${esc(a.pay_ok)}</dd>
+          <dt>Code word</dt><dd>${esc(a.codeword)} <span class="pill ${a.codeword_correct ? "flag-ok" : "flag-bad"}">${a.codeword_correct ? "Correct" : "Wrong"}</span></dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Answers</h3>
+      ${answer("How they use AI (real examples)", a.ai_usage)}
+      ${answer("Win-back message to a user who cancelled after 2 months", a.winback)}
+      ${answer("Something they built (tool, automation, dashboard, flow)", a.built)}
+      ${answer("Partnerships / BD deals", a.partners)}
+      ${answer("Anything else", a.extra)}
+    </div>
+
+    <div class="card">
+      <h3>Team notes</h3>
+      <textarea class="notes" id="notes" placeholder="Private notes for the team. Only visible here.">${esc(a.notes)}</textarea>
+      <div class="saverow"><span id="noteState">${a.updated_at ? "Last updated " + esc(fmtDate(a.updated_at)) : ""}</span><button class="btn btn-green" type="button" id="saveNotes">Save notes</button></div>
+    </div>
+  </div>`;
+  if (draftNotes !== null) $("notes").value = draftNotes;
+  $("detail").scrollTop = keepScroll;
+  if (keepWin !== null) window.scrollTo(0, keepWin);
+}
+
+async function startPhase2(a) {
+  try {
+    const out = await api("PATCH", { id: a.id, action: "start_phase2" });
+    Object.assign(a, out.application);
+    render(); showDetail(a.id);
+    try { await navigator.clipboard.writeText(inviteText(a)); toast("Phase 2 link created. Invite message copied."); }
+    catch (_) { toast("Phase 2 link created"); }
+  } catch (e) { if (e.message !== "unauthorized") toast("Could not create the link. Try again."); }
+}
+
+async function patch(id, change, okMsg) {
+  const a = apps.find(x => x.id === id);
+  const before = JSON.stringify(a);
+  Object.assign(a, change);
+  render(); showDetail(id);
+  try {
+    const out = await api("PATCH", { id, ...change });
+    Object.assign(a, out.application);
+    render(); showDetail(id);
+    if (okMsg) toast(okMsg);
+  } catch (e) {
+    Object.assign(a, JSON.parse(before));
+    render(); showDetail(id);
+    toast("Could not save. Check your connection and try again.");
+  }
+}
+
+// Events
+$("loginForm").addEventListener("submit", e => {
+  e.preventDefault();
+  pw = $("pw").value;
+  try { sessionStorage.setItem(PW_KEY, pw); } catch (_) {}
+  $("loginErr").textContent = "";
+  load();
+});
+function logout(msg) {
+  pw = ""; apps = []; selectedId = null;
+  try { sessionStorage.removeItem(PW_KEY); } catch (_) {}
+  $("app").hidden = true; $("navActions").hidden = true; $("login").hidden = false;
+  $("loginErr").textContent = msg || "";
+  $("pw").value = ""; $("pw").focus();
+}
+$("logout").addEventListener("click", () => logout());
+$("refresh").addEventListener("click", () => load().then(() => toast("Updated")));
+$("search").addEventListener("input", render);
+$("sort").addEventListener("change", render);
+$("onlyCode").addEventListener("change", render);
+$("tabs").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b) { filter = b.dataset.f; render(); } });
+$("list").addEventListener("click", e => { const b = e.target.closest("[data-id]"); if (b) showDetail(b.dataset.id); });
+$("detail").addEventListener("click", e => {
+  const a = apps.find(x => x.id === selectedId);
+  if (!a) return;
+  if (e.target.closest("#backBtn")) { $("app").classList.remove("showing"); return; }
+  const st = e.target.closest("[data-status]");
+  if (st) { patch(a.id, { status: st.dataset.status }, "Status: " + STATUS_LABEL[st.dataset.status]); return; }
+  const dot = e.target.closest(".dots button");
+  if (dot) {
+    const set = dot.parentElement.dataset.set, k = dot.parentElement.dataset.k, n = Number(dot.dataset.n);
+    const scores = { ...(a[set] || {}) };
+    if (scores[k] === n) delete scores[k]; else scores[k] = n;
+    patch(a.id, { [set]: scores }); return;
+  }
+  const act = e.target.closest("[data-action]");
+  if (act && act.dataset.action === "reject") { markRejected(a); return; }
+  if (act && act.dataset.action === "copyReject") {
+    navigator.clipboard.writeText(`Subject: ${REJECT_SUBJECT}\n\n${rejectionText(a)}`).then(() => toast("Rejection email copied"), () => toast("Copy failed"));
+    return;
+  }
+  if (act) {
+    const copy = (text, msg) => navigator.clipboard.writeText(text).then(() => toast(msg), () => toast("Copy failed. Select the text manually."));
+    if (act.dataset.action === "start2") startPhase2(a);
+    if (act.dataset.action === "copyLink") copy(taskLink(a), "Link copied");
+    if (act.dataset.action === "copyInvite") copy(inviteText(a), "Invite message copied");
+    return;
+  }
+  if (e.target.closest("#saveNotes")) { patch(a.id, { notes: $("notes").value }, "Notes saved"); return; }
+  if (e.target.closest("#copyEmail")) {
+    navigator.clipboard.writeText(a.email).then(() => toast("Email copied"), () => toast(a.email));
+  }
+});
+
+$("csv").addEventListener("click", () => {
+  const cols = ["submitted_at", "status", "name", "email", "location", "linkedin", "loom", "start", "saas_years", "ecom", "ai_level", "ai_tools", "ai_other", "ai_usage", "pay_ok", "codeword_correct", "score", "phase2_status", "phase2_score", "winback", "built", "partners", "extra", "notes"];
+  const cell = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const rows = [cols.join(",")].concat(filtered().map(a => cols.map(c =>
+    cell(c === "ecom" || c === "ai_tools" ? (a[c] || []).join("; ") : c === "score" ? scoreOf(a) ?? "" : c === "phase2_status" ? (a.phase2 ? (a.phase2.submission ? "submitted" : "sent") : "") : c === "phase2_score" ? sum(a.scores2) ?? "" : a[c])
+  ).join(",")));
+  const blob = new Blob(["﻿" + rows.join("\n")], { type: "text/csv;charset=utf-8" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = `bdm-applicants-${new Date().toISOString().slice(0, 10)}.csv`;
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+});
+
+// Auto-login within the same browser tab session
+try { pw = sessionStorage.getItem(PW_KEY) || ""; } catch (_) {}
+if (pw) load(); else $("pw").focus();
+</script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Phase 2 · Test Task · Page Pilot &amp; Store Pilot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..900&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+/* Store Pilot / Page Pilot brand: Inter, black + white, green, neon yellow, green→cyan gradient */
+:root {
+  --black: #0a0a0a;
+  --ink: #111312;
+  --ink-2: #3f4156;
+  --muted: #6b716e;
+  --line: #e3e7e5;
+  --white: #ffffff;
+  --mint-bg: #f1fff9;
+  --mint: #a5e3b9;
+  --green: #059f70;
+  --green-dark: #047a56;
+  --teal: #5fd5b6;
+  --neon: #fcff00;
+  --star: #ffa132;
+  --grad: linear-gradient(90deg, #4bfe85 0%, #00dbff 100%);
+  --radius: 14px;
+  --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.15; margin: 0; letter-spacing: -0.02em; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
+.narrow { max-width: 760px; }
+
+/* Nav */
+.nav { background: var(--black); color: var(--white); position: sticky; top: 0; z-index: 20; border-bottom: 1px solid #1d1f1e; }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; text-decoration: none; letter-spacing: -0.02em; }
+.logo-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--grad); display: grid; place-items: center; color: var(--black); }
+.logo small { font-weight: 500; color: #9aa19e; font-size: 13px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 700 16px/1 var(--font); text-decoration: none; cursor: pointer;
+  padding: 16px 26px; border-radius: 999px; border: 0;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-neon { background: var(--neon); color: var(--black); box-shadow: 0 6px 24px rgba(252,255,0,.25); }
+.btn-neon:hover { box-shadow: 0 10px 30px rgba(252,255,0,.35); }
+.btn-green { background: var(--green); color: var(--white); }
+.btn-green:hover { background: var(--green-dark); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+.btn-sm { padding: 11px 18px; font-size: 14px; }
+.btn[disabled] { opacity: .5; cursor: not-allowed; transform: none; }
+
+/* Labels / chips */
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
+.chip-dark { background: #1a1c1b; color: #d9dedb; border: 1px solid #2a2d2b; }
+.chip-mint { background: var(--mint-bg); color: var(--green-dark); border: 1px solid var(--mint); }
+.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hl { background: var(--neon); color: var(--black); padding: 0 .2em; border-radius: 4px; }
+</style>
+<style>
+  body { background: var(--mint-bg); }
+  .top { background: var(--black); color: var(--white); padding-block: 40px 96px; }
+  .top .wrap { display: grid; gap: 12px; }
+  .back { color: #9aa19e; font-size: 14px; text-decoration: none; font-weight: 600; }
+  .back:hover { color: var(--white); }
+  .top h1 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 900; }
+  .top p { color: #c9cfcc; max-width: 60ch; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+
+  main { margin-top: -64px; padding-bottom: 80px; }
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 20px 60px rgba(10, 30, 20, .08); overflow: hidden; }
+
+  /* Progress */
+  .progress { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
+  .pstep { padding: 16px 18px; display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--muted); border-right: 1px solid var(--line); position: relative; }
+  .pstep:last-child { border-right: 0; }
+  .pstep .n { flex: none; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; font-size: 13px; font-weight: 700; }
+  .pstep.active { color: var(--ink); }
+  .pstep.active .n { background: var(--black); border-color: var(--black); color: var(--neon); }
+  .pstep.done .n { background: var(--green); border-color: var(--green); color: var(--white); }
+  .pstep::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: transparent; }
+  .pstep.active::after { background: var(--grad); }
+
+  form { padding: 36px; }
+  fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 24px; min-width: 0; }
+  legend { padding: 0; margin-bottom: 4px; }
+  .step-title { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+  .step-sub { color: var(--muted); margin-top: 4px; }
+
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .field { display: grid; gap: 8px; }
+  label, .label { font-weight: 600; font-size: 15px; }
+  .req { color: var(--green); }
+  .hint { font-size: 13px; color: var(--muted); font-weight: 400; }
+  input[type=text], input[type=email], input[type=url], select, textarea {
+    width: 100%; font: 400 16px/1.5 var(--font); color: var(--ink);
+    padding: 13px 14px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--white);
+    transition: border-color .15s, box-shadow .15s;
+  }
+  textarea { min-height: 120px; resize: vertical; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 4px rgba(5,159,112,.12); }
+  .invalid input, .invalid select, .invalid textarea { border-color: #e5484d; }
+  .err { display: none; font-size: 13px; color: #d13438; font-weight: 500; }
+  .invalid .err { display: block; }
+  .count { font-size: 12px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+  .opts { display: flex; flex-wrap: wrap; gap: 10px; }
+  .opt { position: relative; }
+  .opt input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .opt span { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; border: 1.5px solid var(--line); font-size: 15px; font-weight: 500; cursor: pointer; transition: all .15s; background: var(--white); }
+  .opt input:checked + span { border-color: var(--green); background: var(--mint-bg); color: var(--green-dark); font-weight: 600; }
+  .opt input:focus-visible + span { outline: 3px solid var(--teal); outline-offset: 2px; }
+
+  .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 500; font-size: 15px; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--green); flex: none; }
+
+  /* Loom brief */
+  .brief { background: var(--black); color: var(--white); border-radius: 16px; padding: 26px; display: grid; gap: 16px; }
+  .brief h3 { font-size: 18px; display: flex; align-items: center; gap: 10px; }
+  .brief ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; counter-reset: b; }
+  .brief li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; color: #dfe4e1; font-size: 15px; }
+  .brief li::before { counter-increment: b; content: counter(b); width: 26px; height: 26px; border-radius: 50%; background: var(--mint); color: var(--black); font-weight: 800; font-size: 13px; display: grid; place-items: center; }
+  .brief li b { color: var(--white); }
+  .brief .tips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .brief a { color: var(--neon); }
+
+  .scenario { background: var(--mint-bg); border: 1px solid var(--mint); border-radius: 12px; padding: 14px 16px; font-size: 14px; color: var(--ink-2); }
+
+  .actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 8px; border-top: 1px solid var(--line); margin-top: 8px; padding-top: 24px; }
+  .saved { font-size: 13px; color: var(--muted); }
+
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  /* Review */
+  .review { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .review div { display: grid; grid-template-columns: 180px 1fr; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .review div:last-child { border-bottom: 0; }
+  .review dt { color: var(--muted); font-weight: 600; }
+  .review dd { margin: 0; word-break: break-word; white-space: pre-wrap; }
+
+  /* Done */
+  .done { padding: 56px 36px; text-align: center; display: grid; gap: 16px; justify-items: center; }
+  .done .tick { width: 72px; height: 72px; border-radius: 50%; background: var(--grad); display: grid; place-items: center; }
+  .done h2 { font-size: 30px; font-weight: 900; }
+  .done p { color: var(--ink-2); max-width: 52ch; }
+  .next { text-align: left; display: grid; gap: 10px; margin-top: 8px; width: 100%; max-width: 440px; }
+  .next div { display: flex; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; font-size: 15px; }
+  .next b { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--green); color: var(--white); display: grid; place-items: center; font-size: 13px; }
+  .submit-err { display: none; background: #fff4f4; border: 1px solid #f5c2c2; color: #b3261e; border-radius: 10px; padding: 12px 14px; font-size: 14px; }
+
+  @media (max-width: 700px) {
+    form { padding: 24px 20px; }
+    .row { grid-template-columns: 1fr; }
+    .progress { grid-template-columns: repeat(4, 1fr); }
+    .pstep { justify-content: center; padding: 14px 6px; }
+    .pstep .t { display: none; }
+    .review div { grid-template-columns: 1fr; gap: 2px; }
+    .actions .saved { display: none; }
+  }
+</style>
+<style>
+  .task-parts { display: grid; gap: 16px; }
+  .part { border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: grid; gap: 10px; }
+  .part.main { border-color: var(--mint); background: var(--mint-bg); }
+  .part h3 { font-size: 18px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .part h3 .tag { font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: var(--black); color: var(--neon); }
+  .part h3 .time { font-size: 12px; font-weight: 600; color: var(--muted); }
+  .part p, .part li { color: var(--ink-2); font-size: 15px; }
+  .part ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+  details.data { border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+  details.data summary { cursor: pointer; padding: 12px 16px; font-weight: 600; font-size: 14px; }
+  details.data .inner { padding: 0 16px 16px; font-size: 14px; color: var(--ink-2); }
+  .data table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .data th, .data td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .data th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+  .data .tbl { overflow-x: auto; }
+  .chat { border-left: 3px solid var(--mint); padding: 8px 0 8px 12px; margin-top: 10px; display: grid; gap: 4px; }
+  .chat .who { font-weight: 700; color: var(--ink); }
+  .facts2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .facts2 div { border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+  .facts2 b { display: block; font-size: 18px; }
+  .facts2 span { font-size: 13px; color: var(--muted); }
+  .section-title { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin-top: 8px; }
+  .state { padding: 56px 32px; text-align: center; display: grid; gap: 12px; justify-items: center; }
+  .state h2 { font-size: 26px; font-weight: 900; }
+  .state p { color: var(--ink-2); max-width: 50ch; }
+  .banner { border-radius: 12px; padding: 12px 16px; font-size: 14px; background: #fff7e8; border: 1px solid #f5d9a6; color: #8a4b08; }
+  @media (max-width: 700px) { .facts2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="/">
+      <span class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></span>
+      Page Pilot <small>&amp; Store Pilot · Careers</small>
+    </a>
+  </div>
+</nav>
+
+<header class="top">
+  <div class="wrap narrow">
+    <span class="eyebrow" style="color:var(--teal)">Phase 2 · Business Development Manager</span>
+    <h1 id="hello">Your test task</h1>
+    <p>You made it to Phase 2. This task is the real work you'd do in your first weeks. Take your time and show us how you think. We care more about quality than length.</p>
+    <div class="meta" id="meta">
+      <span class="chip chip-dark">3–4 hours</span>
+      <span class="chip chip-dark" id="payChip" hidden></span>
+      <span class="chip chip-dark" id="deadlineChip">Deadline: loading…</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap narrow">
+  <div class="card" id="card">
+    <div class="state" id="loading"><p>Loading your task…</p></div>
+
+    <div class="state" id="invalid" hidden>
+      <h2>This link doesn't work</h2>
+      <p>Open the exact link we sent you. If it still doesn't work, reply to our message and we'll send a new one.</p>
+      <a class="btn btn-ghost" href="/">Go to the job page</a>
+    </div>
+
+    <div id="task" hidden>
+      <form id="form" novalidate style="display:grid;gap:28px">
+        <div class="banner" id="resubmitBanner" hidden></div>
+
+        <div style="display:grid;gap:14px">
+          <div class="step-title">The brief</div>
+          <p class="step-sub" style="margin:0">You have 4 parts. Part 1 matters most. Use the sample data below. It's anonymised and slightly simplified, but based on the kinds of problems we really see.</p>
+          <div class="facts2">
+            <div><b>Page Pilot</b><span>$39 / $59 / $99 per month, free trial</span></div>
+            <div><b>Churn</b><span>Most cancellations happen in months 1–3</span></div>
+            <div><b>Users</b><span>Mostly new dropshippers, 18–35</span></div>
+          </div>
+        </div>
+
+        <div class="task-parts">
+          <div class="part main">
+            <h3><span class="tag">Part 1 · Most important</span>Win-back plan for Page Pilot <span class="time">~2 hours</span></h3>
+            <p>Using the cancellation data below, design how we win back users who stopped paying.</p>
+            <ul>
+              <li>Split churned users into 3–4 groups based on why they left</li>
+              <li>For each group: channel, timing, offer, and the <b>actual messages</b> (subject line + text)</li>
+              <li>How you'd measure it: which numbers, what "good" looks like after 30 days</li>
+            </ul>
+          </div>
+          <div class="part">
+            <h3>Part 2 · Support and reviews <span class="time">~45 min</span></h3>
+            <p>Read the 3 support chats below. What would you tell each agent to do better? Then write the exact message agents should use to ask happy users for a review.</p>
+          </div>
+          <div class="part">
+            <h3>Part 3 · Partnerships <span class="time">~30 min</span></h3>
+            <p>List 5 companies that could use Store Pilot through our API or sell it under their own brand (white-label). For each: why they're a fit, who to contact (role), and your first outreach message for one of them.</p>
+          </div>
+          <div class="part">
+            <h3>Part 4 · Build something small <span class="time">~30 min</span></h3>
+            <p>Build a simple tracker for the win-back flow from Part 1: a Google Sheet, Airtable, Notion or small dashboard that shows churned users, which flow they're in, and recovered revenue. Use fake data. Any tool is fine, including AI.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;gap:10px">
+          <div class="section-title">Sample data</div>
+          <details class="data" open>
+            <summary>Cancellation survey: last 20 responses</summary>
+            <div class="inner"><div class="tbl"><table>
+              <thead><tr><th>#</th><th>Plan</th><th>Months paid</th><th>Reason given</th></tr></thead>
+              <tbody id="churnRows"></tbody>
+            </table></div></div>
+          </details>
+          <details class="data">
+            <summary>Support chat 1: "My page looks weird on mobile"</summary>
+            <div class="inner">
+              <div class="chat"><span><span class="who">User:</span> hi my product page looks weird on mobile the images are huge</span><span><span class="who">Agent:</span> Hello. Please clear your cache.</span><span><span class="who">User:</span> did that still the same</span><span><span class="who">Agent:</span> Please send a screenshot.</span><span><span class="who">User:</span> [screenshot]</span><span><span class="who">Agent:</span> This is from your theme, not Page Pilot. You need to contact Shopify.</span><span><span class="who">User:</span> ok thanks for nothing</span></div>
+            </div>
+          </details>
+          <details class="data">
+            <summary>Support chat 2: "How do I change the language?"</summary>
+            <div class="inner">
+              <div class="chat"><span><span class="who">User:</span> Hey, can I make the page in German?</span><span><span class="who">Agent:</span> Hi Lukas! Yes, of course 😊 Open the page in the editor, click "Settings" at the top, then "Language" and pick German. It rewrites the whole page for you.</span><span><span class="who">User:</span> Wow that worked, super fast. Thanks!!</span><span><span class="who">Agent:</span> Happy to help! Anything else?</span><span><span class="who">User:</span> No that's all</span><span><span class="who">Agent:</span> Have a great day!</span></div>
+            </div>
+          </details>
+          <details class="data">
+            <summary>Support chat 3: "I want to cancel"</summary>
+            <div class="inner">
+              <div class="chat"><span><span class="who">User:</span> I want to cancel my subscription</span><span><span class="who">Agent:</span> You can cancel from Settings → Billing.</span><span><span class="who">User:</span> ok</span><span><span class="who">User:</span> done</span></div>
+            </div>
+          </details>
+        </div>
+
+        <div style="display:grid;gap:22px">
+          <div class="section-title">Your submission</div>
+          <div class="field">
+            <label for="loom">Loom walking us through your work (5–10 min) <span class="req">*</span></label>
+            <span class="hint">Share your screen and explain your thinking. Set the link to "Anyone with the link".</span>
+            <input id="loom" name="loom" type="text" inputmode="url" autocapitalize="off" spellcheck="false" data-url placeholder="https://www.loom.com/share/…" required>
+            <span class="err">Please paste your Loom link.</span>
+          </div>
+          <div class="field">
+            <label for="plan_link">Link to your full plan (Google Doc, Notion…) <span class="hint">(optional)</span></label>
+            <input id="plan_link" name="plan_link" type="text" inputmode="url" autocapitalize="off" spellcheck="false" data-url placeholder="https://…">
+          </div>
+          <div class="field">
+            <label for="segments">Part 1: your churn groups and why <span class="req">*</span></label>
+            <textarea id="segments" name="segments" required maxlength="3000"></textarea>
+            <span class="err">Please describe your groups.</span>
+          </div>
+          <div class="field">
+            <label for="messages">Part 1: the win-back messages (channel, timing, offer, full text) <span class="req">*</span></label>
+            <textarea id="messages" name="messages" required maxlength="5000" style="min-height:200px"></textarea>
+            <span class="err">Please write the messages.</span>
+          </div>
+          <div class="field">
+            <label for="measure">Part 1: how you'd measure success <span class="req">*</span></label>
+            <textarea id="measure" name="measure" required maxlength="1500" style="min-height:90px"></textarea>
+            <span class="err">Please tell us how you'd measure it.</span>
+          </div>
+          <div class="field">
+            <label for="support">Part 2: your feedback for each support agent <span class="req">*</span></label>
+            <textarea id="support" name="support" required maxlength="3000"></textarea>
+            <span class="err">Please give your feedback.</span>
+          </div>
+          <div class="field">
+            <label for="review_ask">Part 2: the exact message to ask for a review <span class="req">*</span></label>
+            <textarea id="review_ask" name="review_ask" required maxlength="1500" style="min-height:90px"></textarea>
+            <span class="err">Please write the review message.</span>
+          </div>
+          <div class="field">
+            <label for="partners">Part 3: 5 partners + one outreach message <span class="req">*</span></label>
+            <textarea id="partners" name="partners" required maxlength="3000"></textarea>
+            <span class="err">Please list your partners.</span>
+          </div>
+          <div class="field">
+            <label for="builder_link">Part 4: link to your tracker <span class="req">*</span></label>
+            <span class="hint">Make sure we can open it without requesting access.</span>
+            <input id="builder_link" name="builder_link" type="text" inputmode="url" autocapitalize="off" spellcheck="false" data-url placeholder="https://…" required>
+            <span class="err">Please paste the link to your tracker.</span>
+          </div>
+          <div class="field">
+            <label for="builder_note">Part 4: what did you use to build it? <span class="hint">(optional)</span></label>
+            <input id="builder_note" name="builder_note" type="text" maxlength="1500" placeholder="e.g. Google Sheets + ChatGPT for formulas">
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="hours">How many hours did it take? <span class="req">*</span></label>
+              <input id="hours" name="hours" type="text" inputmode="decimal" placeholder="e.g. 3.5" required maxlength="20">
+              <span class="err">Please tell us roughly how long it took.</span>
+            </div>
+            <div class="field">
+              <label for="feedback">What did you think of this task? <span class="hint">(optional)</span></label>
+              <input id="feedback" name="feedback" type="text" maxlength="1000">
+            </div>
+          </div>
+          <div class="submit-err" id="submitErr"></div>
+          <div class="actions">
+            <span class="saved" id="saved">Draft saved in this browser</span>
+            <button type="submit" class="btn btn-green" id="submitBtn">Submit Phase 2</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="state" id="done" hidden>
+      <div class="tick" style="width:72px;height:72px;border-radius:50%;background:var(--grad);display:grid;place-items:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h2>Phase 2 submitted</h2>
+      <p>Thank you for the work you put in. We'll review it and get back to you within 5 working days to book the final call, where you present it to us.</p>
+      <button class="btn btn-ghost" type="button" id="editAgain">Edit my submission</button>
+    </div>
+  </div>
+</main>
+
+<script>
+// Accept links typed without https:// (e.g. www.linkedin.com/in/name) and add it automatically
+function normalizeUrl(el) {
+  const v = el.value.trim();
+  if (v && !/^https?:\/\//i.test(v)) el.value = "https://" + v.replace(/^\/+/, "");
+}
+document.querySelectorAll("input[data-url]").forEach(el => el.addEventListener("blur", () => normalizeUrl(el)));
+
+/* Set to "" to hide the pay chip. */
+const TASK_PAY = "";
+
+const CHURN = [
+  ["Starter", 1, "Didn't make any sales, so no point paying"],
+  ["Lite", 1, "Too expensive for me right now"],
+  ["Starter", 2, "Store not making money yet, will come back later"],
+  ["Scaler", 3, "Switched to a competitor that's cheaper"],
+  ["Starter", 1, "Only needed it for one product page"],
+  ["Lite", 2, "Pages look too similar to other stores"],
+  ["Starter", 1, "Forgot to cancel the trial"],
+  ["Starter", 4, "Stopped dropshipping, going back to my job"],
+  ["Lite", 1, "Didn't understand how to connect it to Shopify"],
+  ["Starter", 2, "Ads account got banned, pausing everything"],
+  ["Scaler", 5, "Moving to a custom theme with a developer"],
+  ["Starter", 1, "Too expensive"],
+  ["Lite", 3, "The AI images were not good enough for my niche"],
+  ["Starter", 2, "No sales"],
+  ["Starter", 1, "Just testing, not ready to launch yet"],
+  ["Lite", 1, "Mobile page looked broken and support didn't help"],
+  ["Scaler", 2, "Using fewer products, don't need unlimited"],
+  ["Starter", 3, "Found a free alternative"],
+  ["Starter", 1, "Didn't have time to work on my store"],
+  ["Lite", 2, "Language translation was not natural for my market"]
+];
+
+const params = new URLSearchParams(location.search);
+const A = params.get("a") || "", T = params.get("t") || "";
+const DRAFT_KEY = "bdm-phase2-" + A;
+const $ = id => document.getElementById(id);
+const form = $("form");
+
+$("churnRows").innerHTML = CHURN.map((r, i) => `<tr><td>${i + 1}</td><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+if (TASK_PAY) { $("payChip").textContent = TASK_PAY; $("payChip").hidden = false; }
+
+function fill(data) {
+  Object.entries(data || {}).forEach(([k, v]) => { const el = form.elements[k]; if (el && typeof v === "string") el.value = v; });
+}
+function collect() {
+  const o = {};
+  [...form.elements].forEach(el => { if (el.name) o[el.name] = el.value; });
+  return o;
+}
+
+async function init() {
+  if (!A || !T) return showInvalid();
+  let info;
+  try {
+    const res = await fetch(`/api/task?a=${encodeURIComponent(A)}&t=${encodeURIComponent(T)}`);
+    if (!res.ok) return showInvalid();
+    info = await res.json();
+  } catch (e) { return showInvalid(); }
+
+  $("loading").hidden = true;
+  if (info.first_name) $("hello").textContent = `${info.first_name}, here's your test task`;
+  const dl = new Date(info.deadline);
+  $("deadlineChip").textContent = "Deadline: " + dl.toLocaleString(undefined, { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+
+  let draft = null;
+  try { draft = JSON.parse(localStorage.getItem(DRAFT_KEY) || "null"); } catch (e) {}
+  fill(info.submission);
+  if (draft) fill(draft);
+
+  if (info.submitted_at) {
+    $("done").hidden = false;
+    $("resubmitBanner").textContent = "You already submitted on " + new Date(info.submitted_at).toLocaleString() + ". You can edit and submit again before the deadline; we'll review the latest version.";
+    $("resubmitBanner").hidden = false;
+  } else {
+    $("task").hidden = false;
+  }
+}
+function showInvalid() { $("loading").hidden = true; $("invalid").hidden = false; $("deadlineChip").hidden = true; }
+
+$("editAgain").addEventListener("click", () => { $("done").hidden = true; $("task").hidden = false; });
+
+form.addEventListener("input", e => {
+  const f = e.target.closest(".field"); if (f) f.classList.remove("invalid");
+  try { localStorage.setItem(DRAFT_KEY, JSON.stringify(collect())); } catch (_) {}
+});
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  form.querySelectorAll("input[data-url]").forEach(normalizeUrl);
+  let bad = null;
+  form.querySelectorAll("[required]").forEach(el => {
+    const ok = el.value.trim() && el.checkValidity();
+    el.closest(".field").classList.toggle("invalid", !ok);
+    if (!ok && !bad) bad = el;
+  });
+  if (bad) { bad.focus(); return; }
+
+  const btn = $("submitBtn"), err = $("submitErr");
+  err.style.display = "none"; btn.disabled = true; btn.textContent = "Sending…";
+  try {
+    const res = await fetch("/api/task", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ a: A, t: T, ...collect() }) });
+    const out = await res.json().catch(() => ({}));
+    if (!res.ok || !out.ok) throw new Error(out.error || "HTTP " + res.status);
+    try { localStorage.removeItem(DRAFT_KEY); } catch (_) {}
+    $("task").hidden = true; $("done").hidden = false;
+    $("card").scrollIntoView({ behavior: "smooth", block: "start" });
+  } catch (x) {
+    err.textContent = "Your task could not be sent. Check your connection and press Submit again. Your answers are still here.";
+    err.style.display = "block";
+  } finally {
+    btn.disabled = false; btn.textContent = "Submit Phase 2";
+  }
+});
+
+init();
+</script>
+</body>
+</html>

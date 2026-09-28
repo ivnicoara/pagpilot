@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Apply · Business Development Manager · Page Pilot &amp; Store Pilot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..900&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+/* Store Pilot / Page Pilot brand: Inter, black + white, green, neon yellow, green→cyan gradient */
+:root {
+  --black: #0a0a0a;
+  --ink: #111312;
+  --ink-2: #3f4156;
+  --muted: #6b716e;
+  --line: #e3e7e5;
+  --white: #ffffff;
+  --mint-bg: #f1fff9;
+  --mint: #a5e3b9;
+  --green: #059f70;
+  --green-dark: #047a56;
+  --teal: #5fd5b6;
+  --neon: #fcff00;
+  --star: #ffa132;
+  --grad: linear-gradient(90deg, #4bfe85 0%, #00dbff 100%);
+  --radius: 14px;
+  --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.15; margin: 0; letter-spacing: -0.02em; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
+.narrow { max-width: 760px; }
+
+/* Nav */
+.nav { background: var(--black); color: var(--white); position: sticky; top: 0; z-index: 20; border-bottom: 1px solid #1d1f1e; }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; text-decoration: none; letter-spacing: -0.02em; }
+.logo-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--grad); display: grid; place-items: center; color: var(--black); }
+.logo small { font-weight: 500; color: #9aa19e; font-size: 13px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 700 16px/1 var(--font); text-decoration: none; cursor: pointer;
+  padding: 16px 26px; border-radius: 999px; border: 0;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-neon { background: var(--neon); color: var(--black); box-shadow: 0 6px 24px rgba(252,255,0,.25); }
+.btn-neon:hover { box-shadow: 0 10px 30px rgba(252,255,0,.35); }
+.btn-green { background: var(--green); color: var(--white); }
+.btn-green:hover { background: var(--green-dark); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+.btn-sm { padding: 11px 18px; font-size: 14px; }
+.btn[disabled] { opacity: .5; cursor: not-allowed; transform: none; }
+
+/* Labels / chips */
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
+.chip-dark { background: #1a1c1b; color: #d9dedb; border: 1px solid #2a2d2b; }
+.chip-mint { background: var(--mint-bg); color: var(--green-dark); border: 1px solid var(--mint); }
+.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hl { background: var(--neon); color: var(--black); padding: 0 .2em; border-radius: 4px; }
+</style>
+<style>
+  body { background: var(--mint-bg); }
+  .top { background: var(--black); color: var(--white); padding-block: 40px 96px; }
+  .top .wrap { display: grid; gap: 12px; }
+  .back { color: #9aa19e; font-size: 14px; text-decoration: none; font-weight: 600; }
+  .back:hover { color: var(--white); }
+  .top h1 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 900; }
+  .top p { color: #c9cfcc; max-width: 60ch; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+
+  main { margin-top: -64px; padding-bottom: 80px; }
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 20px 60px rgba(10, 30, 20, .08); overflow: hidden; }
+
+  /* Progress */
+  .progress { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
+  .pstep { padding: 16px 18px; display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--muted); border-right: 1px solid var(--line); position: relative; }
+  .pstep:last-child { border-right: 0; }
+  .pstep .n { flex: none; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; font-size: 13px; font-weight: 700; }
+  .pstep.active { color: var(--ink); }
+  .pstep.active .n { background: var(--black); border-color: var(--black); color: var(--neon); }
+  .pstep.done .n { background: var(--green); border-color: var(--green); color: var(--white); }
+  .pstep::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: transparent; }
+  .pstep.active::after { background: var(--grad); }
+
+  form { padding: 36px; }
+  fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 24px; min-width: 0; }
+  legend { padding: 0; margin-bottom: 4px; }
+  .step-title { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+  .step-sub { color: var(--muted); margin-top: 4px; }
+
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .field { display: grid; gap: 8px; }
+  label, .label { font-weight: 600; font-size: 15px; }
+  .req { color: var(--green); }
+  .hint { font-size: 13px; color: var(--muted); font-weight: 400; }
+  input[type=text], input[type=email], input[type=url], select, textarea {
+    width: 100%; font: 400 16px/1.5 var(--font); color: var(--ink);
+    padding: 13px 14px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--white);
+    transition: border-color .15s, box-shadow .15s;
+  }
+  textarea { min-height: 120px; resize: vertical; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 4px rgba(5,159,112,.12); }
+  .invalid input, .invalid select, .invalid textarea { border-color: #e5484d; }
+  .err { display: none; font-size: 13px; color: #d13438; font-weight: 500; }
+  .invalid .err { display: block; }
+  .count { font-size: 12px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+  .opts { display: flex; flex-wrap: wrap; gap: 10px; }
+  .opt { position: relative; }
+  .opt input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .opt span { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; border: 1.5px solid var(--line); font-size: 15px; font-weight: 500; cursor: pointer; transition: all .15s; background: var(--white); }
+  .opt input:checked + span { border-color: var(--green); background: var(--mint-bg); color: var(--green-dark); font-weight: 600; }
+  .opt input:focus-visible + span { outline: 3px solid var(--teal); outline-offset: 2px; }
+
+  .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 500; font-size: 15px; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--green); flex: none; }
+
+  /* Loom brief */
+  .brief { background: var(--black); color: var(--white); border-radius: 16px; padding: 26px; display: grid; gap: 16px; }
+  .brief h3 { font-size: 18px; display: flex; align-items: center; gap: 10px; }
+  .brief ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; counter-reset: b; }
+  .brief li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; color: #dfe4e1; font-size: 15px; }
+  .brief li::before { counter-increment: b; content: counter(b); width: 26px; height: 26px; border-radius: 50%; background: var(--mint); color: var(--black); font-weight: 800; font-size: 13px; display: grid; place-items: center; }
+  .brief li b { color: var(--white); }
+  .brief .tips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .brief a { color: var(--neon); }
+
+  .scenario { background: var(--mint-bg); border: 1px solid var(--mint); border-radius: 12px; padding: 14px 16px; font-size: 14px; color: var(--ink-2); }
+
+  .actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 8px; border-top: 1px solid var(--line); margin-top: 8px; padding-top: 24px; }
+  .saved { font-size: 13px; color: var(--muted); }
+
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  /* Review */
+  .review { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .review div { display: grid; grid-template-columns: 180px 1fr; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .review div:last-child { border-bottom: 0; }
+  .review dt { color: var(--muted); font-weight: 600; }
+  .review dd { margin: 0; word-break: break-word; white-space: pre-wrap; }
+
+  /* Done */
+  .done { padding: 56px 36px; text-align: center; display: grid; gap: 16px; justify-items: center; }
+  .done .tick { width: 72px; height: 72px; border-radius: 50%; background: var(--grad); display: grid; place-items: center; }
+  .done h2 { font-size: 30px; font-weight: 900; }
+  .done p { color: var(--ink-2); max-width: 52ch; }
+  .next { text-align: left; display: grid; gap: 10px; margin-top: 8px; width: 100%; max-width: 440px; }
+  .next div { display: flex; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; font-size: 15px; }
+  .next b { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--green); color: var(--white); display: grid; place-items: center; font-size: 13px; }
+  .submit-err { display: none; background: #fff4f4; border: 1px solid #f5c2c2; color: #b3261e; border-radius: 10px; padding: 12px 14px; font-size: 14px; }
+
+  @media (max-width: 700px) {
+    form { padding: 24px 20px; }
+    .row { grid-template-columns: 1fr; }
+    .progress { grid-template-columns: repeat(4, 1fr); }
+    .pstep { justify-content: center; padding: 14px 6px; }
+    .pstep .t { display: none; }
+    .review div { grid-template-columns: 1fr; gap: 2px; }
+    .actions .saved { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></span>
+      Page Pilot <small>&amp; Store Pilot · Careers</small>
+    </a>
+    <a class="btn btn-sm" style="color:#c9cfcc;padding-inline:0" href="index.html">View job description</a>
+  </div>
+</nav>
+
+<header class="top">
+  <div class="wrap narrow">
+    <a class="back" href="index.html">← Back to the job</a>
+    <h1>Apply: Business Development Manager</h1>
+    <p>4 short steps, about 15 minutes. The Loom video matters most, so take your time with it. Your answers are saved in this browser as you type.</p>
+    <div class="meta">
+      <span class="chip chip-dark">$3,000/mo + bonuses</span>
+      <span class="chip chip-dark">Remote · Full-time</span>
+      <span class="chip chip-dark">Loom required</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap narrow">
+  <div class="card" id="card">
+    <div class="progress" aria-hidden="true">
+      <div class="pstep" data-p="1"><span class="n">1</span><span class="t">About you</span></div>
+      <div class="pstep" data-p="2"><span class="n">2</span><span class="t">Your Loom</span></div>
+      <div class="pstep" data-p="3"><span class="n">3</span><span class="t">Experience</span></div>
+      <div class="pstep" data-p="4"><span class="n">4</span><span class="t">Finish</span></div>
+    </div>
+
+    <form id="form" novalidate>
+      <!-- Honeypot for bots: humans never see or fill this -->
+      <div class="hp" aria-hidden="true"><label for="company_site">Company website</label><input id="company_site" name="company_site" type="text" tabindex="-1" autocomplete="off"></div>
+
+      <!-- STEP 1 -->
+      <fieldset data-step="1">
+        <legend><div class="step-title">About you</div><div class="step-sub">The basics, so we know who we're talking to.</div></legend>
+        <div class="row">
+          <div class="field"><label for="name">Full name <span class="req">*</span></label><input id="name" name="name" type="text" autocomplete="name" required><span class="err">Please enter your name.</span></div>
+          <div class="field"><label for="email">Email <span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" required><span class="err">Please enter a valid email address.</span></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="location">City and country <span class="req">*</span></label><input id="location" name="location" type="text" placeholder="e.g. Cluj-Napoca, Romania" required><span class="err">Please tell us where you live.</span></div>
+          <div class="field"><label for="linkedin">LinkedIn profile <span class="req">*</span></label><input id="linkedin" name="linkedin" type="text" inputmode="url" autocapitalize="off" spellcheck="false" data-url placeholder="https://linkedin.com/in/…" required data-match="linkedin.com"><span class="err">Please paste your LinkedIn profile link.</span></div>
+        </div>
+        <div class="field">
+          <span class="label">When can you start? <span class="req">*</span></span>
+          <div class="opts" role="radiogroup" aria-label="Start date">
+            <label class="opt"><input type="radio" name="start" value="Immediately" required><span>Immediately</span></label>
+            <label class="opt"><input type="radio" name="start" value="Within 2 weeks"><span>Within 2 weeks</span></label>
+            <label class="opt"><input type="radio" name="start" value="Within 1 month"><span>Within 1 month</span></label>
+            <label class="opt"><input type="radio" name="start" value="Later than 1 month"><span>Later</span></label>
+          </div>
+          <span class="err">Please choose one.</span>
+        </div>
+      </fieldset>
+
+      <!-- STEP 2 -->
+      <fieldset data-step="2" hidden>
+        <legend><div class="step-title">Record your Loom</div><div class="step-sub">3 to 5 minutes, camera on. This replaces a cover letter and a first interview.</div></legend>
+        <div class="brief">
+          <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fcff00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Cover these 3 things</h3>
+          <ol>
+            <li><div><b>Who you are.</b> Your background in SaaS and e-commerce, in one minute.</div></li>
+            <li><div><b>One result you're proud of.</b> Something you grew, fixed or built. Use real numbers.</div></li>
+            <li><div><b>Share your screen on <a href="https://pagepilot.ai/" target="_blank" rel="noopener">pagepilot.ai</a> or <a href="https://store.pagepilot.ai/" target="_blank" rel="noopener">store.pagepilot.ai</a>.</b> Tell us one concrete idea to win back users who cancel.</div></li>
+          </ol>
+          <div class="tips">
+            <span class="chip chip-dark">Talk, don't read a script</span>
+            <span class="chip chip-dark">Set the link to "Anyone with the link"</span>
+            <span class="chip chip-dark">Free at <a href="https://www.loom.com/" target="_blank" rel="noopener">loom.com</a></span>
+          </div>
+        </div>
+        <div class="field"><label for="loom">Your Loom link <span class="req">*</span></label><input id="loom" name="loom" type="text" inputmode="url" autocapitalize="off" spellcheck="false" data-url placeholder="https://www.loom.com/share/…" required data-match="loom.com"><span class="err">Please paste a Loom link (it should contain loom.com).</span></div>
+        <div class="field">
+          <label class="check"><input id="loom_public" name="loom_public" type="checkbox" value="yes" required> I checked that my Loom opens without logging in.</label>
+          <span class="err">Please confirm your Loom is viewable by anyone with the link.</span>
+        </div>
+      </fieldset>
+
+      <!-- STEP 3 -->
+      <fieldset data-step="3" hidden>
+        <legend><div class="step-title">Your experience</div><div class="step-sub">Short, specific answers beat long ones.</div></legend>
+        <div class="field">
+          <span class="label">Years working in or with SaaS companies <span class="req">*</span></span>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="saas_years" value="Less than 1" required><span>Less than 1</span></label>
+            <label class="opt"><input type="radio" name="saas_years" value="1-2"><span>1–2</span></label>
+            <label class="opt"><input type="radio" name="saas_years" value="3-5"><span>3–5</span></label>
+            <label class="opt"><input type="radio" name="saas_years" value="5+"><span>5+</span></label>
+          </div>
+          <span class="err">Please choose one.</span>
+        </div>
+        <div class="field">
+          <span class="label">Your e-commerce experience <span class="hint">(pick all that apply)</span></span>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="ecom" value="Ran my own Shopify store"><span>Ran my own Shopify store</span></label>
+            <label class="opt"><input type="checkbox" name="ecom" value="Dropshipping"><span>Dropshipping</span></label>
+            <label class="opt"><input type="checkbox" name="ecom" value="Worked at an e-com SaaS"><span>Worked at an e-com SaaS</span></label>
+            <label class="opt"><input type="checkbox" name="ecom" value="E-com agency"><span>E-com agency</span></label>
+            <label class="opt"><input type="checkbox" name="ecom" value="Paid ads for stores"><span>Paid ads for stores</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="label">How do you use AI today? <span class="req">*</span></span>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="ai_level" value="Rarely or never" required><span>Rarely or never</span></label>
+            <label class="opt"><input type="radio" name="ai_level" value="Chat assistant for daily work"><span>Chat assistant for daily work</span></label>
+            <label class="opt"><input type="radio" name="ai_level" value="Automations and workflows"><span>I build automations and workflows</span></label>
+            <label class="opt"><input type="radio" name="ai_level" value="Builds tools and apps with AI"><span>I build tools and apps with AI</span></label>
+          </div>
+          <span class="err">Please choose one.</span>
+        </div>
+        <div class="field">
+          <span class="label">Which AI tools do you use regularly? <span class="hint">(pick all that apply)</span></span>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="ai_tools" value="ChatGPT"><span>ChatGPT</span></label>
+            <label class="opt"><input type="checkbox" name="ai_tools" value="Claude"><span>Claude</span></label>
+            <label class="opt"><input type="checkbox" name="ai_tools" value="Gemini"><span>Gemini</span></label>
+            <label class="opt"><input type="checkbox" name="ai_tools" value="Perplexity"><span>Perplexity</span></label>
+            <label class="opt"><input type="checkbox" name="ai_tools" value="Cursor / Claude Code / Codex"><span>Cursor / Claude Code / Codex</span></label>
+            <label class="opt"><input type="checkbox" name="ai_tools" value="Lovable / Bolt / v0"><span>Lovable / Bolt / v0</span></label>
+            <label class="opt"><input type="checkbox" name="ai_tools" value="Make / Zapier / n8n"><span>Make / Zapier / n8n</span></label>
+            <label class="opt"><input type="checkbox" name="ai_tools" value="Image / video AI"><span>Image / video AI</span></label>
+          </div>
+          <input id="ai_other" name="ai_other" type="text" maxlength="200" placeholder="Other tools you use (optional)">
+        </div>
+        <div class="field">
+          <label for="ai_usage">Describe how you use AI in your work. Give 1–2 real examples. <span class="req">*</span></label>
+          <span class="hint">What was the task, which tool did you use, and what did it save or improve? Prompts, workflows and links are welcome.</span>
+          <textarea id="ai_usage" name="ai_usage" required minlength="60" maxlength="1500"></textarea>
+          <div class="count" data-for="ai_usage"></div>
+          <span class="err">Please describe how you use AI (at least 60 characters).</span>
+        </div>
+        <div class="field">
+          <label for="winback">A Page Pilot user cancelled after 2 months. Write the first message you'd send them. <span class="req">*</span></label>
+          <span class="hint">Email, in-app or WhatsApp, your choice. Write the actual text.</span>
+          <textarea id="winback" name="winback" required minlength="80" maxlength="1500"></textarea>
+          <div class="count" data-for="winback"></div>
+          <span class="err">Please write the message (at least 80 characters).</span>
+        </div>
+        <div class="field">
+          <label for="built">Tell us about something you built yourself: a tool, automation, dashboard or flow. <span class="req">*</span></label>
+          <span class="hint">What problem did it solve, what did you use (AI, Zapier, Make, code…), and what was the result? Links welcome.</span>
+          <textarea id="built" name="built" required minlength="60" maxlength="1500"></textarea>
+          <div class="count" data-for="built"></div>
+          <span class="err">Please tell us about it (at least 60 characters).</span>
+        </div>
+        <div class="field">
+          <label for="partners">Have you closed partnerships or BD deals before (API, white-label, affiliates, agencies)? <span class="hint">(optional)</span></label>
+          <textarea id="partners" name="partners" maxlength="1000" style="min-height:90px"></textarea>
+        </div>
+      </fieldset>
+
+      <!-- STEP 4 -->
+      <fieldset data-step="4" hidden>
+        <legend><div class="step-title">Almost done</div><div class="step-sub">Two quick checks, then review and send.</div></legend>
+        <div class="field">
+          <span class="label">The pay is $3,000/month plus bonuses (including a % of the revenue you recover). Does that work for you? <span class="req">*</span></span>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="pay_ok" value="Yes" required><span>Yes, works for me</span></label>
+            <label class="opt"><input type="radio" name="pay_ok" value="Want to discuss"><span>I'd like to discuss it</span></label>
+          </div>
+          <span class="err">Please choose one.</span>
+        </div>
+        <div class="field">
+          <label for="codeword">Code word from the job description <span class="req">*</span></label>
+          <span class="hint">You'll find it at the bottom of the job page.</span>
+          <input id="codeword" name="codeword" type="text" autocomplete="off" required>
+          <span class="err">Please enter the code word.</span>
+        </div>
+        <div class="field">
+          <label for="extra">Anything else you want us to know? <span class="hint">(optional)</span></label>
+          <textarea id="extra" name="extra" maxlength="1000" style="min-height:90px"></textarea>
+        </div>
+        <div class="field">
+          <span class="label">Review your application</span>
+          <dl class="review" id="review"></dl>
+        </div>
+        <div class="submit-err" id="submitErr"></div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="button" class="btn btn-ghost" id="prev">← Back</button>
+        <span class="saved" id="saved">Draft saved in this browser</span>
+        <button type="button" class="btn btn-green" id="next">Continue →</button>
+      </div>
+    </form>
+
+    <div class="done" id="done" hidden>
+      <div class="tick"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h2>Application sent</h2>
+      <p>Thanks, <span id="doneName">there</span>. We watch every Loom ourselves. Here's what happens next:</p>
+      <div class="next">
+        <div><b>1</b>We review your Loom and answers within 5 working days.</div>
+        <div><b>2</b>If it's a fit, we email you to book a 30-minute intro call.</div>
+        <div><b>3</b>Then a short practical task: a real win-back flow.</div>
+      </div>
+      <a class="btn btn-ghost" href="index.html" style="margin-top:8px">Back to the job page</a>
+    </div>
+  </div>
+</main>
+
+<script>
+// Accept links typed without https:// (e.g. www.linkedin.com/in/name) and add it automatically
+function normalizeUrl(el) {
+  const v = el.value.trim();
+  if (v && !/^https?:\/\//i.test(v)) el.value = "https://" + v.replace(/^\/+/, "");
+}
+document.querySelectorAll("input[data-url]").forEach(el => el.addEventListener("blur", () => normalizeUrl(el)));
+
+/*
+  WHERE APPLICATIONS GO
+  Set FORM_ENDPOINT to any URL that accepts a JSON POST, for example:
+   - Formspree:            https://formspree.io/f/XXXXXXX
+   - Make / Zapier webhook (then push rows into Google Sheets, Notion, Airtable, Slack…)
+   - Google Apps Script web app bound to a Google Sheet
+  While it is empty, the form shows the success screen and logs the payload to the console (test mode).
+*/
+const FORM_ENDPOINT = "/api/apply";
+const CODE_WORD = "COMEBACK";
+const DRAFT_KEY = "bdm-application-draft";
+
+const form = document.getElementById("form");
+const steps = [...form.querySelectorAll("fieldset[data-step]")];
+const pills = [...document.querySelectorAll(".pstep")];
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+let current = 1;
+
+function show(n) {
+  current = n;
+  steps.forEach(s => s.hidden = Number(s.dataset.step) !== n);
+  pills.forEach(p => {
+    const i = Number(p.dataset.p);
+    p.classList.toggle("active", i === n);
+    p.classList.toggle("done", i < n);
+  });
+  prevBtn.style.visibility = n === 1 ? "hidden" : "visible";
+  nextBtn.textContent = n === steps.length ? "Submit application" : "Continue →";
+  if (n === steps.length) renderReview();
+  document.getElementById("card").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function fieldOf(el) { return el.closest(".field"); }
+
+function validateStep(n) {
+  const step = steps[n - 1];
+  step.querySelectorAll("input[data-url]").forEach(normalizeUrl);
+  let firstBad = null;
+  step.querySelectorAll(".field").forEach(f => f.classList.remove("invalid"));
+  const seenRadio = new Set();
+  step.querySelectorAll("[required]").forEach(el => {
+    let ok = true;
+    if (el.type === "radio") {
+      if (seenRadio.has(el.name)) return;
+      seenRadio.add(el.name);
+      ok = !!step.querySelector(`input[name="${el.name}"]:checked`);
+    } else if (el.type === "checkbox") {
+      ok = el.checked;
+    } else {
+      const v = el.value.trim();
+      ok = v.length > 0 && el.checkValidity();
+      if (ok && el.dataset.match) ok = v.toLowerCase().includes(el.dataset.match);
+      if (ok && el.minLength > 0) ok = v.length >= el.minLength;
+    }
+    if (!ok) {
+      fieldOf(el).classList.add("invalid");
+      if (!firstBad) firstBad = el;
+    }
+  });
+  if (firstBad) firstBad.focus({ preventScroll: false });
+  return !firstBad;
+}
+
+function collect() {
+  const fd = new FormData(form);
+  const data = {};
+  for (const [k, v] of fd.entries()) {
+    if (k in data) data[k] = [].concat(data[k], v);
+    else data[k] = v;
+  }
+  if (data.ecom && !Array.isArray(data.ecom)) data.ecom = [data.ecom];
+  if (data.ai_tools && !Array.isArray(data.ai_tools)) data.ai_tools = [data.ai_tools];
+  return data;
+}
+
+const LABELS = {
+  name: "Name", email: "Email", location: "Location", linkedin: "LinkedIn", start: "Can start",
+  loom: "Loom", saas_years: "SaaS years", ecom: "E-commerce", ai_level: "AI level", ai_tools: "AI tools", ai_other: "Other AI tools", ai_usage: "How I use AI", winback: "Win-back message",
+  built: "Something I built", partners: "Partnerships", pay_ok: "Pay OK", codeword: "Code word", extra: "Other"
+};
+
+function renderReview() {
+  const d = collect();
+  const dl = document.getElementById("review");
+  dl.innerHTML = "";
+  Object.keys(LABELS).forEach(k => {
+    let v = d[k];
+    if (Array.isArray(v)) v = v.join(", ");
+    if (!v) return;
+    if (typeof v === "string" && v.length > 220) v = v.slice(0, 220) + "…";
+    const row = document.createElement("div");
+    const dt = document.createElement("dt"); dt.textContent = LABELS[k];
+    const dd = document.createElement("dd"); dd.textContent = v;
+    row.append(dt, dd); dl.append(row);
+  });
+}
+
+// Draft saving (this browser only)
+function saveDraft() {
+  try { localStorage.setItem(DRAFT_KEY, JSON.stringify({ data: collect(), step: current })); } catch (e) {}
+}
+function loadDraft() {
+  let saved;
+  try { saved = JSON.parse(localStorage.getItem(DRAFT_KEY) || "null"); } catch (e) { saved = null; }
+  if (!saved || !saved.data) return 1;
+  const d = saved.data;
+  Object.entries(d).forEach(([k, v]) => {
+    const els = form.querySelectorAll(`[name="${k}"]`);
+    els.forEach(el => {
+      if (el.type === "radio" || el.type === "checkbox") el.checked = [].concat(v).includes(el.value);
+      else el.value = v;
+    });
+  });
+  return Math.min(Math.max(Number(saved.step) || 1, 1), steps.length);
+}
+
+// Character counters
+document.querySelectorAll(".count").forEach(c => {
+  const ta = document.getElementById(c.dataset.for);
+  const upd = () => { c.textContent = `${ta.value.length} / ${ta.maxLength}`; };
+  ta.addEventListener("input", upd); upd._ta = ta; c._upd = upd;
+});
+
+form.addEventListener("input", e => {
+  const f = fieldOf(e.target);
+  if (f) f.classList.remove("invalid");
+  saveDraft();
+});
+form.addEventListener("change", saveDraft);
+form.addEventListener("submit", e => e.preventDefault());
+
+prevBtn.addEventListener("click", () => { if (current > 1) show(current - 1); });
+nextBtn.addEventListener("click", async () => {
+  if (!validateStep(current)) return;
+  if (current < steps.length) { show(current + 1); saveDraft(); return; }
+  await submit();
+});
+
+async function submit() {
+  const data = collect();
+  const errBox = document.getElementById("submitErr");
+  errBox.style.display = "none";
+  if (data.company_site) { finish(data); return; } // bot: pretend success
+  delete data.company_site;
+
+  const payload = {
+    ...data,
+    role: "Business Development Manager",
+    codeword_correct: (data.codeword || "").trim().toUpperCase() === CODE_WORD,
+    submitted_at: new Date().toISOString()
+  };
+
+  nextBtn.disabled = true;
+  nextBtn.textContent = "Sending…";
+  try {
+    if (FORM_ENDPOINT) {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const out = await res.json().catch(() => ({}));
+      if (!out.ok) throw new Error("Not saved");
+    } else {
+      console.info("[Test mode] FORM_ENDPOINT is empty. Application payload:", payload);
+    }
+    try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
+    finish(data);
+  } catch (err) {
+    errBox.textContent = "Your application could not be sent. Check your internet connection and press Submit again. Your answers are still here.";
+    errBox.style.display = "block";
+    nextBtn.disabled = false;
+    nextBtn.textContent = "Submit application";
+  }
+}
+
+function finish(data) {
+  form.hidden = true;
+  document.querySelector(".progress").hidden = true;
+  document.getElementById("doneName").textContent = (data.name || "there").split(" ")[0];
+  document.getElementById("done").hidden = false;
+  document.getElementById("card").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+const startStep = loadDraft();
+document.querySelectorAll(".count").forEach(c => c._upd());
+show(startStep);
+window.scrollTo(0, 0);
+</script>
+</body>
+</html>
